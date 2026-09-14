@@ -340,6 +340,20 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
 .unit .pic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .nav .brand-logo img{height:60px}
 .nav.small .brand-logo img{height:50px}
+/* PLANTAS - grade lado a lado */
+.plangrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+@media(max-width:900px){.plangrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.plangrid{grid-template-columns:1fr}}
+.plan-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:.35s;display:flex;flex-direction:column}
+.plan-card:hover{border-color:var(--gold);box-shadow:0 18px 40px rgba(36,28,22,.10);transform:translateY(-4px)}
+.plan-card .pimg{position:relative;background:#d0d0d0}
+.plan-card .pimg img{width:100%;height:300px;object-fit:contain;display:block}
+.plan-card .zoom{position:absolute;top:12px;right:12px;background:rgba(23,17,13,.72);color:var(--gold2);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:20px;opacity:0;transition:.3s;border:1px solid var(--lineD)}
+.plan-card:hover .zoom{opacity:1}
+.plan-card .pcap2{padding:16px 20px 18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.plan-card .pcap2 .nm{font-family:var(--serif);font-size:20px;color:var(--ink);font-weight:600;line-height:1.1}
+.plan-card .pcap2 .sp{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.2px}
+.plan-note{margin-top:26px;color:var(--mut);font-size:13px;font-style:italic}
 @media(max-width:900px){
  section{padding:84px 0}
  .burg{display:block}
@@ -363,6 +377,7 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
     <a href="#unidade">Apartamentos</a>
     <a href="#diferenciais">Diferenciais</a>
     <a href="#lazer">Áreas comuns</a>
+    <a href="#plantas">Plantas</a>
     <a href="#galeria">Galeria</a>
     <a href="#local">Localização</a>
     <a href="#interesse" class="cta">Tenho interesse</a>
@@ -555,6 +570,32 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
     <div class="tip"><div class="t">2º Pavimento</div><div class="m">1.471<small> m²</small></div><p>Salão de festas, espaços gourmet, piscina, living, espaço kids e vestiários.</p></div>
     <div class="tip"><div class="t">3º Pavimento</div><div class="m">1.249<small> m²</small></div><p>Salão de festas (mezanino), academia, terraço, jardim, solário e vestiários.</p></div>
   </div>
+</div></section>
+
+<section id="plantas" class="alt"><div class="wrap">
+  <div class="rv" style="max-width:760px"><div class="tag">Plantas</div>
+    <h2 class="serif">Todas as plantas do <em>empreendimento</em>.</h2>
+    <p class="lead">Do apartamento tipo às coberturas duplex, conheça cada opção de planta com suas metragens e configurações. Clique para ampliar.</p>
+  </div>
+
+  <div class="amgroup rv d1" style="margin-top:40px"><div class="gh"><span class="lv" style="color:var(--gold)">Pavimento tipo</span><span class="ds" style="color:var(--mut)">4º ao 13º andar</span></div></div>
+  <div class="plangrid rv d1">
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-01.jpg" alt="Planta Final 01" loading="lazy"></div><div class="pcap2"><span class="nm">Final 01</span><span class="sp">186 m² · 3 suítes</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-02.jpg" alt="Planta Final 02" loading="lazy"></div><div class="pcap2"><span class="nm">Final 02</span><span class="sp">124 m² · 1 suíte + 2 dormitórios</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-03.jpg" alt="Planta Final 03" loading="lazy"></div><div class="pcap2"><span class="nm">Final 03</span><span class="sp">149 m² · 2 suítes + 1 dormitório</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-04.jpg" alt="Planta Final 04" loading="lazy"></div><div class="pcap2"><span class="nm">Final 04</span><span class="sp">146 m² · 2 suítes + 2 dormitórios</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-duplex-05.jpg" alt="Planta Duplex Final 05" loading="lazy"></div><div class="pcap2"><span class="nm">Duplex Final 05</span><span class="sp">162 m² · 1 suíte + 2 dormitórios</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-06.jpg" alt="Planta Final 06" loading="lazy"></div><div class="pcap2"><span class="nm">Final 06</span><span class="sp">152 m² · 2 suítes + 1 dormitório</span></div></div>
+  </div>
+
+  <div class="amgroup rv d1" style="margin-top:44px"><div class="gh"><span class="lv" style="color:var(--gold)">Coberturas</span><span class="ds" style="color:var(--mut)">14º andar</span></div></div>
+  <div class="plangrid rv d1">
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1401.jpg" alt="Planta Cobertura 1401" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1401</span><span class="sp">248 m² · 3 suítes</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1402.jpg" alt="Planta Cobertura 1402" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1402</span><span class="sp">202 m² · 2 suítes + 1 dormitório</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1403.jpg" alt="Planta Cobertura 1403" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1403</span><span class="sp">238 m² · 2 suítes + 1 dormitório</span></div></div>
+    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1404.jpg" alt="Planta Cobertura 1404" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1404</span><span class="sp">223 m² · 2 suítes + 1 dormitório</span></div></div>
+  </div>
+  <p class="plan-note">Plantas e metragens ilustrativas, conforme Memorial Descritivo. Áreas privativas conforme Coluna 23 da NBR 12.721.</p>
 </div></section>
 
 <section id="galeria" class="dark"><div class="wrap">
@@ -768,5 +809,12 @@ plb.addEventListener('click',function(e){if(e.target===plb)plbClose();});
 document.addEventListener('keydown',function(e){if(!plb.classList.contains('on'))return;if(e.key==='Escape')plbClose();if(e.key==='ArrowRight')plbMove(1);if(e.key==='ArrowLeft')plbMove(-1);});
 </script>
 
+<script>
+(function(){var lb=document.getElementById('lb'),lbInner=document.getElementById('lbInner');
+document.querySelectorAll('.plan-card').forEach(function(card){card.addEventListener('click',function(){
+ var img=card.querySelector('img');if(!img)return;lbInner.innerHTML='';
+ var c=img.cloneNode();c.style.cssText='max-width:94vw;max-height:90vh;object-fit:contain;border-radius:10px;background:#d0d0d0';
+ lbInner.appendChild(c);lb.classList.add('on');});});})();
+</script>
 </body>
 </html>
