@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+  ============================================================================
+  RESIDENCIAL MONT'SANTO - Landing Page (v1)
+  Incorporacao e construcao: Souza Eng.Arq  |  Comercializacao: GO Company 360
+  Av. Nossa Senhora da Medianeira, 1130 - Bairro Medianeira - Santa Maria/RS
+  Diagramacao derivada da LP Infinity Residence (GO Company 360).
+  Imagens em img/ (renders ilustrativos). WhatsApp: 55 55 99605-6881 (GO Company).
+  ============================================================================
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residencial Mont'Santo · Bairro Medianeira · Santa Maria/RS</title>
+<meta name="description" content="Residencial Mont'Santo: 59 apartamentos de 124 a 248 m2, mais de 900 m2 de area social, 4 elevadores e piscina com deck, na Av. Nossa Senhora da Medianeira, Santa Maria/RS. Ultimas unidades.">
+<meta property="og:title" content="Residencial Mont'Santo · Santa Maria/RS">
+<meta property="og:description" content="Apartamentos de 124 a 248 m2, area social de mais de 900 m2 e a melhor vista da cidade. Ultimas unidades.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  /* ---- Identidade MONT'SANTO: laranja da marca + neutros quentes + espresso ---- */
+  --bg:#f5efe6; --panel:#fffdf9; --alt:#ece3d4; --marble:#f1e9dc;
+  --deep:#17110d; --dark:#1e1611; --dark2:#28201a;
+  --ink:#241c16; --mut:#8a7e72; --line:rgba(36,28,22,.13); --lineD:rgba(226,87,31,.20);
+  --gold:#e2571f; --gold2:#f2894f; --gold-soft:#cf4a17; --cream:#f2e9db;
+  /* Tipografia MONT'SANTO (modelo 2): Lora (serifada tradicional) - Archivo (marca/labels) - Manrope (corpo) */
+  --serif:'Lora',Georgia,serif; --sans:'Manrope',system-ui,sans-serif; --caps:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:0 30px}
+.serif{font-family:var(--serif)}
+.prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:10001;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.gold-txt{background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* infinito decorativo */
+.inf-mark{display:inline-block;color:var(--gold)}
+.inf-water{position:absolute;font-family:var(--serif);font-style:italic;color:rgba(226,87,31,.05);font-size:34vw;line-height:.7;pointer-events:none;z-index:0;user-select:none}
+/* LOGO */
+.brand-logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.brand-logo img{height:70px;width:auto;display:block}
+.brand-logo .lg-light{display:none}
+.nav.small .brand-logo .lg-dark{display:none}
+.nav.small .brand-logo .lg-light{display:block}
+.brand-logo .mono{display:flex;flex-direction:column;line-height:1}
+.brand-logo .mono .n{font-family:var(--caps);font-weight:600;font-size:23px;letter-spacing:5px;color:#fff;text-transform:uppercase}
+.brand-logo .mono .s{font-family:var(--caps);font-size:9px;letter-spacing:6px;color:var(--gold2);text-transform:uppercase;margin-top:5px}
+.nav.small .brand-logo .mono .n{color:var(--ink)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9999;transition:.45s;padding:18px 0}
+.nav.small{padding:10px 0;background:rgba(242,239,233,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;justify-content:space-between}
+.nav .brand-logo img{height:56px}
+.nav.small .brand-logo img{height:48px}
+.nav.top .links a{color:rgba(255,255,255,.86)}
+.links{display:flex;align-items:center;gap:26px}
+.links a{color:var(--mut);text-decoration:none;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;transition:.25s;position:relative}
+.links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:.3s}
+.links a:not(.cta):hover{color:var(--gold)}.links a:not(.cta):hover::after{width:100%}
+.links a.cta{border:1px solid var(--gold);color:var(--gold);padding:10px 22px;border-radius:999px}
+.nav.top .links a.cta{color:var(--gold2);border-color:var(--gold2)}
+.links a.cta:hover{background:var(--gold);color:#fff !important;border-color:var(--gold)}
+.burg{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.nav.small .burg{color:var(--ink)}
+/* HERO */
+.hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:center;overflow:hidden;background:var(--deep)}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg .ph{position:absolute;inset:0;background:
+   radial-gradient(120% 90% at 78% 15%,rgba(226,87,31,.16),transparent 55%),
+   linear-gradient(180deg,#1c150f 0%,#150f0b 60%,#100b08 100%);
+   display:flex;align-items:center;justify-content:center}
+.hero .bg .ph .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 75% 35%,#000,transparent 75%)}
+.hero .bg img{width:100%;height:114%;object-fit:cover;position:absolute;inset:0;opacity:.82}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(6,9,11,.9),rgba(6,9,11,.35) 56%,transparent),linear-gradient(0deg,#0f0a07,transparent 46%)}
+.hero .in{position:relative;z-index:2;max-width:920px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold2);font-family:var(--caps);font-size:12px;letter-spacing:3.5px;text-transform:uppercase;font-weight:500}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold2)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.6vw,74px);line-height:1.04;color:#fff;margin:20px 0 18px;letter-spacing:-.3px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero .slogan{font-size:clamp(15px,1.55vw,19px);color:#e6e2d8;font-weight:300;max-width:56ch}
+.actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent}
+.btn.solid{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#2a1206}.btn.solid:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(226,87,31,.4)}
+.btn.line{border-color:rgba(255,255,255,.4);color:#fff}.btn.line:hover{border-color:var(--gold2);color:var(--gold2)}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;color:rgba(255,255,255,.7);font-family:var(--caps);font-size:10px;letter-spacing:4.5px;text-transform:uppercase}
+.scroll-cue .line{width:1px;height:56px;background:linear-gradient(var(--gold2),rgba(242,137,79,0));position:relative;overflow:hidden}
+.scroll-cue .line::after{content:"";position:absolute;left:0;top:0;width:1px;height:18px;background:var(--gold2);animation:cueSlide 2.4s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes cueSlide{0%{transform:translateY(-18px);opacity:0}25%{opacity:1}100%{transform:translateY(56px);opacity:0}}
+/* selo */
+.badge{position:absolute;right:34px;bottom:34px;z-index:3;text-align:right;color:#cfc8b7;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;line-height:1.7;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.badge b{color:var(--gold2);font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:1px;text-transform:none}
+@media(max-width:760px){.badge{display:none}}
+/* STATS */
+.stats{background:linear-gradient(180deg,#f6f3ec,#ece7db);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+.stats::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent);opacity:.65}
+.stats .in{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding:50px 0}
+.stats .s{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;border-right:1px solid var(--line);position:relative}
+.stats .s:last-child{border-right:0}
+.stats .s .n{font-family:var(--sans);font-size:clamp(30px,3.6vw,47px);font-weight:700;line-height:1;background:linear-gradient(150deg,#b8431a 0%,var(--gold) 46%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stats .s .n small{font-size:.5em;-webkit-text-fill-color:var(--gold);font-weight:700}
+.stats .s .l{font-family:var(--sans);color:var(--mut);font-size:11px;letter-spacing:1.4px;text-transform:uppercase}
+.stats .s .l::before{content:"";display:block;width:22px;height:1px;background:var(--gold);opacity:.5;margin:0 auto 10px}
+@media(max-width:900px){.stats .in{grid-template-columns:repeat(3,1fr);gap:30px 14px}.stats .s:nth-child(3n){border-right:0}}
+@media(max-width:520px){.stats .in{grid-template-columns:1fr 1fr}.stats .s{border-right:0}}
+section{padding:120px 0;position:relative;overflow:hidden}
+.tag{color:var(--gold);font-family:var(--caps);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.tag::before{content:"▲";font-size:8px;color:var(--gold);position:relative;top:-1px;letter-spacing:0}
+.tag.center{justify-content:center}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,62px);line-height:1.04;color:var(--ink);letter-spacing:-.5px}
+h2 em{font-style:italic;color:var(--gold)}
+.lead{color:var(--mut);font-size:clamp(16px,1.7vw,19px);font-weight:300;max-width:66ch;margin-top:22px}
+.dark{background:var(--dark);color:var(--cream)}
+.dark h2{color:#fff}.dark h2 em{color:var(--gold2)}.dark .tag{color:var(--gold2)}.dark .tag::before{color:var(--gold2)}.dark .lead{color:#cdc7ba}
+.alt{background:var(--alt)}
+.rv{opacity:0;transform:translateY(38px);transition:opacity 1s cubic-bezier(.16,.8,.3,1),transform 1s cubic-bezier(.16,.8,.3,1)}
+.rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+/* conceito (dark band) */
+.concept{text-align:center}
+.concept .big{font-family:var(--serif);font-size:clamp(26px,3.8vw,48px);color:var(--cream);font-weight:500;max-width:26ch;margin:0 auto;line-height:1.24;position:relative;z-index:2}
+.concept .big b{color:var(--gold2);font-weight:600;font-style:italic}
+.concept .sig{margin-top:30px;color:var(--gold2);font-size:12px;letter-spacing:3px;text-transform:uppercase;position:relative;z-index:2}
+/* sobre + ficha */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ficha .f{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;transition:.3s}
+.ficha .f:hover{border-color:var(--gold);box-shadow:0 12px 28px rgba(20,28,32,.07);transform:translateY(-3px)}
+.ficha .f .k{color:var(--gold);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.ficha .f .v{color:var(--ink);font-size:15.5px;font-weight:600;margin-top:7px}
+/* images */
+.imgbox{position:relative;overflow:hidden;background:var(--alt);border-radius:18px}
+.imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)}
+.imgbox:hover img{transform:scale(1.06)}
+.ph{background:
+   radial-gradient(120% 100% at 30% 10%,rgba(226,87,31,.12),transparent 60%),
+   repeating-linear-gradient(115deg,rgba(20,28,32,.02) 0 22px,transparent 22px 44px),
+   linear-gradient(135deg,#e8e2d6,#d7cfbe);
+   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#a99f8b;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-align:center;padding:20px}
+.ph .im{font-family:var(--serif);font-style:italic;font-size:30px;color:rgba(226,87,31,.5)}
+.dark .ph{background:radial-gradient(120% 100% at 30% 10%,rgba(226,87,31,.14),transparent 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.02) 0 22px,transparent 22px 44px),linear-gradient(135deg,#241d17,#191109);color:#7c766a}
+/* unidade destaque */
+.unit{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:22px;overflow:hidden;border:1px solid var(--lineD);margin-top:10px}
+@media(max-width:900px){.unit{grid-template-columns:1fr}}
+.unit .side{background:var(--dark2);padding:56px 50px;display:flex;flex-direction:column;justify-content:center}
+.unit .side .big{font-family:var(--serif);font-size:clamp(40px,6vw,72px);color:#fff;line-height:1;font-weight:600}
+.unit .side .big small{font-size:.3em;color:var(--gold2);letter-spacing:2px;display:block;margin-top:8px;font-family:var(--sans);text-transform:uppercase;font-weight:600}
+.unit .side ul{list-style:none;margin-top:30px;display:grid;gap:14px}
+.unit .side li{display:flex;gap:14px;align-items:flex-start;color:#d6d0c4;font-size:15px}
+.unit .side li b{color:var(--gold2);font-weight:700}
+.unit .side li svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;flex:0 0 20px;margin-top:2px}
+.unit .pic{position:relative;min-height:420px;background:var(--alt)}
+.unit .pic .ph{position:absolute;inset:0}
+.unit .pic{overflow:hidden}
+.unit .pic.padrao-pic{cursor:pointer}
+.unit .pic.padrao-pic img{transition:transform .7s cubic-bezier(.16,.8,.3,1)}
+.unit .pic.padrao-pic:hover img{transform:scale(1.05)}
+.unit .pic .padrao-cap{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:34px 26px 22px;font-family:var(--serif);font-style:italic;font-size:clamp(19px,2vw,26px);color:#fff;background:linear-gradient(0deg,rgba(6,9,11,.85),rgba(6,9,11,.2) 68%,transparent);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.unit .pic .padrao-cap b{font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold2);border:1px solid rgba(242,137,79,.55);border-radius:999px;padding:6px 14px;white-space:nowrap;transition:.3s}
+.unit .pic.padrao-pic:hover .padrao-cap b{background:var(--gold);color:#2a1206;border-color:var(--gold)}
+/* video / tour */
+.videowrap{position:relative;max-width:1000px;margin:44px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--lineD);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.videowrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.videowrap .yt-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.videowrap::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,16,19,.4),rgba(11,16,19,.1) 55%);pointer-events:none;z-index:1}
+.videowrap.playing::after{display:none}
+.videowrap .yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;border:1px solid rgba(242,137,79,.7);background:rgba(11,16,19,.5);backdrop-filter:blur(4px);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;z-index:2}
+.videowrap .yt-play:hover{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.07)}
+.videowrap .yt-play svg{width:34px;height:34px;fill:var(--gold2);margin-left:5px;transition:.3s}
+.videowrap .yt-play:hover svg{fill:#17110d}
+.tourwrap{position:relative;max-width:1120px;margin:44px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--lineD);box-shadow:0 30px 70px rgba(0,0,0,.5);background:#17110d}
+.tourwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tour-cta{display:inline-flex;align-items:center;gap:11px;margin-top:30px;padding:15px 30px;border:1px solid var(--gold2);border-radius:999px;color:var(--gold2);text-decoration:none;font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
+.tour-cta:hover{background:var(--gold);border-color:var(--gold);color:#2a1206}
+.tour-cta svg{width:20px;height:20px;fill:currentColor}
+/* diferenciais */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+.dif{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px 30px;transition:.35s;position:relative;overflow:hidden}
+.dif::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:.4s}
+.dif:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(20,28,32,.1);border-color:var(--gold)}
+.dif:hover::before{width:100%}
+.dif .ic{width:46px;height:46px;stroke:var(--gold);fill:none;stroke-width:1.4;margin-bottom:16px}
+.dif .no{position:absolute;right:26px;top:24px;font-family:var(--serif);font-size:22px;color:rgba(226,87,31,.35);font-style:italic}
+.dif h3{font-family:var(--serif);font-size:25px;color:var(--ink);font-weight:600;margin:0 0 10px}
+.dif p{color:var(--mut);font-size:14.5px}
+/* lazer (grupos) */
+.amgroup{margin-top:40px}
+.amgroup .gh{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--lineD)}
+.amgroup .gh .lv{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold2)}
+.amgroup .gh .ds{color:#b7b1a4;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.amen{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.amen{grid-template-columns:1fr}}
+.am{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.03);border:1px solid var(--lineD);border-radius:14px;padding:16px 18px;transition:.3s}
+.am:hover{border-color:var(--gold);background:rgba(226,87,31,.06);transform:translateY(-3px)}
+.am svg{width:24px;height:24px;stroke:var(--gold2);fill:none;stroke-width:1.4;flex:0 0 24px}
+.am span{font-size:14.5px;color:#e7e1d5;font-weight:500}
+/* tipologia chips */
+.tips{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.tip{flex:1;min-width:200px;border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel);transition:.35s}
+.tip:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 16px 34px rgba(20,28,32,.08)}
+.tip .t{color:var(--gold);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.tip .m{font-family:var(--serif);font-size:34px;color:var(--ink);font-weight:600;margin:8px 0 4px}
+.tip .m small{font-size:15px;color:var(--mut)}
+.tip p{color:var(--mut);font-size:14px}
+/* carrossel de plantas */
+.carousel{margin-top:44px}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.stage .frame{position:relative;height:min(72vh,620px);background:#faf8f3;display:flex;align-items:center;justify-content:center}
+.stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:22px;opacity:0;transition:opacity .5s}
+.stage .frame img.on{opacity:1}
+.stage .frame .ph{position:absolute;inset:0}
+.cap{position:absolute;left:26px;bottom:22px;background:rgba(11,16,19,.85);color:#fff;padding:12px 20px;border-radius:14px;backdrop-filter:blur(4px)}
+.cap .t{color:var(--gold2);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.cap .m{font-family:var(--serif);font-size:22px}
+.cbtn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--ink);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;z-index:2}
+.cbtn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.cbtn.prev{left:18px}.cbtn.next{right:18px}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:.2s}
+.dots i.on{background:var(--gold);transform:scale(1.35)}
+/* galeria mosaico + abas */
+.gtabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.gtab{padding:11px 22px;border:1px solid var(--lineD);border-radius:999px;background:transparent;color:#cdc7ba;font-family:var(--sans);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s}
+.gtab:hover{border-color:var(--gold2);color:#fff}
+.gtab.on{background:var(--gold);border-color:var(--gold);color:#2a1206}
+.mgal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:34px}
+@media(max-width:820px){.mgal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}}
+.mg{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;background:var(--dark2);opacity:0;transform:scale(.96);transition:opacity .55s cubic-bezier(.16,.8,.3,1),transform .55s cubic-bezier(.16,.8,.3,1)}
+.mg.show{opacity:1;transform:none}
+.mg.hide{display:none}
+.mg .ph{position:absolute;inset:0}
+.mg img{position:relative;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.mg:hover img{transform:scale(1.08)}
+.mg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.42),transparent 55%);opacity:0;transition:.3s;z-index:1}
+.mg:hover::after{opacity:1}
+.mg .lbl{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-family:var(--serif);font-style:italic;font-size:18px;opacity:0;transform:translateY(8px);transition:.3s}
+.mg:hover .lbl{opacity:1;transform:none}
+.mg.big{grid-column:span 2;grid-row:span 2}
+.mg.wide{grid-column:span 2}
+.lb{position:fixed;inset:0;z-index:12000;background:rgba(9,8,7,.96);display:none;align-items:center;justify-content:center;padding:40px}
+.lb.on{display:flex}
+.lb .x{position:absolute;top:22px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+/* localização */
+.mapbox{margin-top:34px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.mapbox iframe{width:100%;height:440px;border:0;display:block;filter:invert(91%) hue-rotate(180deg) brightness(.95) contrast(.9)}
+.poi{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.poi{grid-template-columns:1fr}}
+.poi li{color:var(--ink);font-size:15.5px;font-weight:400;display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.poi li b{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.8px;min-width:104px;text-transform:uppercase}
+/* obra */
+.obra{display:grid;gap:22px;margin-top:38px;max-width:820px}
+.obra .row .top{display:flex;justify-content:space-between;color:var(--ink);font-weight:600;margin-bottom:10px;font-size:15px}
+.obra .row .top .p{color:var(--gold);font-family:var(--serif);font-size:22px}
+.obra .row .bar{height:8px;background:#d9d2c5;border-radius:20px;overflow:hidden}
+.obra .row .bar span{display:block;height:100%;width:0;border-radius:20px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width 1.5s cubic-bezier(.16,.8,.3,1)}
+.obra-note{margin-top:26px;color:var(--mut);font-size:13.5px;font-style:italic}
+/* quem constroi */
+.builder{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center;position:relative;z-index:2}
+@media(max-width:860px){.builder{grid-template-columns:1fr;gap:30px}}
+.mini{display:flex;gap:34px;margin-top:26px;flex-wrap:wrap}
+.mini .m .n{font-family:var(--serif);font-size:40px;color:var(--gold);line-height:1}
+.mini .m .l{color:var(--mut);font-size:12.5px;margin-top:4px}
+.ms-mark{display:inline-flex;align-items:center;margin-top:30px}
+.ms-mark img{height:56px;width:auto}
+/* form (dark band) */
+.form{max-width:660px;margin:34px auto 0;display:grid;gap:16px;position:relative;z-index:2}
+.form .r2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form .r2{grid-template-columns:1fr}}
+.form input,.form select,.form textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--lineD);color:#fff;padding:15px 18px;font-family:inherit;font-size:15px;border-radius:12px}
+.form input::placeholder,.form textarea::placeholder{color:#9c968a}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold2)}
+.form select{color:#cdc7ba}.form option{color:#241c16}
+.form .priv{color:#948e82;font-size:12px;text-align:center}
+/* WhatsApp float */
+.wa{position:fixed;bottom:28px;right:28px;z-index:9000;display:flex;align-items:center;gap:12px;background:rgba(13,19,22,.82);color:var(--cream);padding:13px 22px 13px 17px;border-radius:999px;text-decoration:none;font-family:var(--sans);font-weight:500;font-size:12.5px;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(234,138,72,.45);backdrop-filter:blur(10px);box-shadow:0 12px 34px rgba(0,0,0,.3);transition:.4s cubic-bezier(.16,.8,.3,1)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:999px;padding:1px;background:linear-gradient(135deg,var(--gold2),transparent 40%,transparent 60%,var(--gold));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.6;transition:.4s}
+.wa:hover{background:rgba(13,19,22,.95);transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.wa:hover::before{opacity:1}
+.wa svg{width:21px;height:21px;fill:var(--gold2);position:relative}
+.wa span{position:relative}
+@media(max-width:560px){.wa span{display:none}.wa{padding:16px;border-radius:50%}}
+footer{padding:64px 0 40px;text-align:center;position:relative;z-index:2}
+footer .brand-logo{margin:0 auto 18px;justify-content:center}
+footer .ms{color:var(--gold2);font-size:13px;margin-bottom:14px}
+footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-height:1.6}
+.credit-band{background:#17110d;padding:22px 44px;display:flex;align-items:center;justify-content:space-between;gap:28px;border-top:1px solid var(--lineD)}
+.credit-band .goco-logo{height:22px;width:auto;flex:0 0 auto;opacity:.92}
+.credit-band .cb-mid{flex:1;text-align:center;color:#8d8779;font-size:11px;letter-spacing:.3px;line-height:1.5;max-width:72ch;margin:0 auto}
+.credit-band .cb-mid b{color:var(--gold2);font-weight:600}
+.credit-band .goco-link{flex:0 0 auto;color:var(--gold);font-weight:700;font-size:11px;letter-spacing:.5px;text-decoration:none;white-space:nowrap;transition:.25s}
+.credit-band .goco-link:hover{color:var(--gold2)}
+@media(max-width:820px){.credit-band{flex-direction:column;text-align:center;gap:14px;padding:26px 24px}.credit-band .cb-mid{text-align:center}}
+/* conceito com imagem */
+.concept-split{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;position:relative;z-index:2;text-align:left}
+@media(max-width:860px){.concept-split{grid-template-columns:1fr;gap:34px}}
+.concept-img{position:relative}
+.concept-img .ph{position:absolute;inset:0;border-radius:16px}
+.concept-img img{position:relative;width:100%;height:min(66vh,600px);object-fit:cover;border-radius:16px;border:1px solid var(--lineD);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.concept-img::after{content:"";position:absolute;inset:12px;border:1px solid rgba(242,137,79,.32);border-radius:11px;pointer-events:none;z-index:2}
+.concept-split .big{max-width:20ch;margin:0;text-align:left}
+.concept-split .sig{text-align:left}
+/* seção parceiros de arquitetura */
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+@media(max-width:860px){.pcards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pcards{grid-template-columns:1fr}}
+.pcard{background:var(--dark2);border:1px solid var(--lineD);border-radius:18px;overflow:hidden;transition:.35s;display:flex;flex-direction:column}
+.pcard.has:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 24px 50px rgba(0,0,0,.42);cursor:pointer}
+.pcard .cover{position:relative;aspect-ratio:4/3;overflow:hidden;background:#1c150f}
+.pcard .cover img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;transition:.6s}
+.pcard .cover img.pl-cover{position:relative;z-index:1;width:auto;height:auto;max-width:74%;max-height:50%;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
+.pcard.has:hover .cover img{transform:scale(1.06)}
+.pcard .cover .ph{position:absolute;inset:0}
+.pcard .cover .cnt{position:absolute;top:12px;right:12px;background:rgba(11,16,19,.72);color:var(--gold2);font-size:11px;letter-spacing:1px;padding:5px 11px;border-radius:20px;border:1px solid var(--lineD);z-index:2}
+.pcard .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pcard .plogo{height:36px;margin-bottom:4px;display:flex;align-items:center}
+.pcard .plogo img{max-height:36px;max-width:160px;width:auto;object-fit:contain}
+.pcard .pname{font-family:var(--serif);font-size:25px;color:#fff;font-weight:600;line-height:1.1}
+.pcard .pdesc{color:#b7b1a4;font-size:13.5px}
+.pcard .plink{margin-top:auto;padding-top:14px;color:var(--gold2);font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.pcard.soon .plink{color:#7c8698}
+.plb{position:fixed;inset:0;z-index:12000;background:rgba(4,7,11,.97);display:none;align-items:center;justify-content:center;flex-direction:column;padding:36px}
+.plb.on{display:flex}
+.plb .pimgwrap{position:relative;width:100%;max-width:1200px;display:flex;align-items:center;justify-content:center}
+.plb img{max-width:88vw;max-height:76vh;object-fit:contain;border-radius:10px}
+.plb .pnav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:1px solid rgba(242,137,79,.5);background:rgba(11,16,19,.55);color:var(--gold2);font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;z-index:2}
+.plb .pnav:hover{background:var(--gold);color:#17110d;border-color:var(--gold)}
+.plb .pnav.prev{left:10px}.plb .pnav.next{right:10px}
+.plb .pclose{position:absolute;top:24px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1;z-index:3}
+.plb .pcap{margin-top:20px;text-align:center}
+.plb .pcap .t{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--gold2)}
+.plb .pcap .c{color:#cfc7ba;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+.unit .pic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.nav .brand-logo img{height:60px}
+.nav.small .brand-logo img{height:50px}
+@media(max-width:900px){
+ section{padding:84px 0}
+ .burg{display:block}
+ .links{position:fixed;top:0;right:-100%;height:100vh;width:82%;max-width:340px;flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:40px;background:var(--panel);transition:.4s;z-index:9998}
+ .links.open{right:0}.links a{font-size:16px;color:var(--ink)!important}
+ .links a.cta{color:var(--gold)!important;border-color:var(--gold)}
+}
+
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+<nav class="nav top" id="nav"><div class="wrap in">
+  <a class="brand-logo" href="#top">
+    <img class="lg-dark" src="img/logo-montsanto-light.png" alt="Residencial Mont'Santo">
+    <img class="lg-light" src="img/logo-montsanto.png" alt="Residencial Mont'Santo">
+  </a>
+  <button class="burg" onclick="document.getElementById('lk').classList.toggle('open')">&#9776;</button>
+  <div class="links" id="lk" onclick="this.classList.remove('open')">
+    <a href="#sobre">O Empreendimento</a>
+    <a href="#unidade">Apartamentos</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#lazer">Áreas comuns</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#local">Localização</a>
+    <a href="#interesse" class="cta">Tenho interesse</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="bg">
+    <div class="ph"><div class="grid"></div></div>
+    <img src="img/ms-fachada-noite-hero.jpg" alt="Fachada do Residencial Mont'Santo" onerror="this.remove()">
+  </div>
+  <div class="wrap in">
+    <div class="eyebrow">Bairro Medianeira · Santa Maria / RS</div>
+    <h1 class="serif">Colecione<br>histórias <em>raras</em>.</h1>
+    <p class="slogan">Residencial Mont'Santo: 59 apartamentos de 124 a 248 m², mais de 900 m² de área social e 4 elevadores, na principal avenida do bairro Medianeira. Um projeto completo, imponente e pensado para a família santa-mariense.</p>
+    <div class="actions">
+      <a href="#interesse" class="btn solid">Quero conhecer</a>
+      <a href="#unidade" class="btn line">Ver os apartamentos</a>
+    </div>
+  </div>
+  <div class="badge"><b>Últimas unidades</b><span>na Av. Nossa Senhora da Medianeira</span></div>
+  <div class="scroll-cue"><span>Explore</span><i class="line"></i></div>
+</header>
+
+<div class="stats"><div class="wrap in">
+  <div class="s"><div class="n" data-count="14">0</div><div class="l">Pavimentos</div></div>
+  <div class="s"><div class="n" data-count="59">0</div><div class="l">Unidades autônomas</div></div>
+  <div class="s"><div class="n" data-count="4">0</div><div class="l">Elevadores</div></div>
+  <div class="s"><div class="n" data-count="128">0</div><div class="l">Boxes de garagem</div></div>
+  <div class="s"><div class="n" data-count="59">0</div><div class="l">Homeboxes</div></div>
+  <div class="s"><div class="n" data-count="900">0</div><div class="l">m² de área social</div></div>
+</div></div>
+
+<section class="concept dark">
+  <div class="inf-water" style="left:-6vw;top:-4vw">△</div>
+  <div class="wrap concept-split">
+    <div class="rv concept-img">
+      <div class="ph"><span class="im">△</span>Residencial Mont'Santo</div>
+      <img src="img/ms-fachada-dia-torre.jpg" alt="Torre do Residencial Mont'Santo" onerror="this.style.display='none'">
+    </div>
+    <div class="rv d1 concept-txt">
+      <div class="tag">O conceito</div>
+      <p class="big">O Mont'Santo nasce para <b>expandir o horizonte</b> de morar bem em Santa Maria: espaços amplos, áreas compartilhadas aconchegantes e a melhor vista da cidade.</p>
+      <div class="sig">Para quem busca o essencial com sofisticação</div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre"><div class="wrap split">
+  <div class="rv">
+    <div class="tag">O empreendimento</div>
+    <h2 class="serif">Uma edificação completa, <em>imponente no seu estilo</em>.</h2>
+    <p class="lead">O Residencial Mont'Santo reúne 59 unidades autônomas em 14 pavimentos, sobre mais de 900 m² de áreas compartilhadas. Fachada que chama a atenção de quem passa, acesso de veículos e pedestres segmentado e visão do horizonte de todos os apartamentos. Tudo isso na Avenida Nossa Senhora da Medianeira, uma das principais da cidade, com comércio, serviços e lazer a poucos passos.</p>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" style="font-size:19px">Souza Eng.Arq</div></div>
+      <div class="f"><div class="k">Tipologias</div><div class="v serif" style="font-size:19px">De 124 a 248 m²</div></div>
+      <div class="f"><div class="k">Torre</div><div class="v serif" style="font-size:19px">14 pavimentos · 59 unidades</div></div>
+      <div class="f"><div class="k">Garagem</div><div class="v serif" style="font-size:19px">128 boxes + 59 homeboxes</div></div>
+      <div class="f"><div class="k">Elevadores</div><div class="v serif" style="font-size:19px">4 elevadores</div></div>
+      <div class="f"><div class="k">Localização</div><div class="v serif" style="font-size:19px">Bairro Medianeira · Santa Maria/RS</div></div>
+      <div class="f"><div class="k">Comercialização</div><div class="v serif" style="font-size:19px">GO Company 360</div></div>
+      <div class="f"><div class="k">Modalidade</div><div class="v serif" style="font-size:19px">Últimas unidades</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="unidade" class="dark"><div class="wrap">
+  <div class="rv" style="max-width:760px"><div class="tag">Os apartamentos</div>
+    <h2 class="serif">De 124 a 248 m², <em>do seu jeito</em>.</h2>
+    <p class="lead">Plantas dos finais 01 ao 06, do 4º ao 13º pavimento, e quatro coberturas exclusivas no 14º. Ambientes pensados para receber, com possibilidade de personalizar espaços e revestimentos.</p>
+  </div>
+  <div class="unit rv d1">
+    <div class="side">
+      <div class="big">248<small>m² na maior cobertura · 3 suítes</small></div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Porcelanato 80x80 ou superior e <b>água quente</b> em todos os ambientes</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Laminado de madeira ou vinílico nos dormitórios; persianas na área íntima</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Espera de gás na churrasqueira, cozinha e lavanderia; opção de isolar a cozinha</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Infraestrutura para ar-condicionado split e <b>espera para lareira</b> personalizável</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Coberturas com <b>espera para spa</b> nos terraços</span></li>
+      </ul>
+    </div>
+    <div class="pic padrao-pic" onclick="padraoOpen()">
+      <div class="ph"><span class="im">△</span></div>
+      <img src="img/ms-gourmet-living.jpg" alt="Ambiente do apartamento Mont'Santo" onerror="this.style.display='none'">
+      <div class="padrao-cap">Living integrado<b>Ver fotos</b></div>
+    </div>
+  </div>
+
+  <div style="margin-top:44px" class="rv d1">
+    <div class="amgroup" style="margin-top:0">
+      <div class="gh"><span class="lv">Pavimento tipo</span><span class="ds">4º ao 13º andar</span></div>
+    </div>
+    <div class="tips" style="margin-top:0">
+      <div class="tip"><div class="t">Final 01</div><div class="m">186<small> m²</small></div><p>3 suítes</p></div>
+      <div class="tip"><div class="t">Final 02</div><div class="m">124<small> m²</small></div><p>1 suíte + 2 dormitórios</p></div>
+      <div class="tip"><div class="t">Final 03</div><div class="m">149<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
+      <div class="tip"><div class="t">Final 04</div><div class="m">146<small> m²</small></div><p>2 suítes + 2 dormitórios</p></div>
+      <div class="tip"><div class="t">Final 05 · Duplex</div><div class="m">162<small> m²</small></div><p>1 suíte + 2 dormitórios</p></div>
+      <div class="tip"><div class="t">Final 06</div><div class="m">152<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
+    </div>
+    <div class="amgroup"><div class="gh"><span class="lv">Coberturas</span><span class="ds">14º andar</span></div></div>
+    <div class="tips" style="margin-top:0">
+      <div class="tip"><div class="t">Cobertura 1401</div><div class="m">248<small> m²</small></div><p>3 suítes</p></div>
+      <div class="tip"><div class="t">Cobertura 1402</div><div class="m">202<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
+      <div class="tip"><div class="t">Cobertura 1403</div><div class="m">238<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
+      <div class="tip"><div class="t">Cobertura 1404</div><div class="m">223<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="diferenciais"><div class="wrap">
+  <div class="rv" style="max-width:720px"><div class="tag">Diferenciais</div>
+    <h2 class="serif">Detalhes que fazem <em>toda a diferença</em>.</h2>
+  </div>
+  <div class="grid3" style="margin-top:46px">
+    <div class="dif rv"><div class="no">01</div>
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 20h16M6 20V8l6-4 6 4v12M9 20v-5h6v5"/></svg>
+      <h3 class="serif">Acesso segmentado</h3><p>Veículos entram pela Rua Dr. Zamenoff e pedestres pela Av. Medianeira. Sem disputa no horário de pico, com chegada e saída tranquilas.</p></div>
+    <div class="dif rv d1"><div class="no">02</div>
+      <svg class="ic" viewBox="0 0 24 24"><path d="M12 3s6 5 6 10a6 6 0 01-12 0c0-5 6-10 6-10z"/></svg>
+      <h3 class="serif">Sustentabilidade</h3><p>Reuso de águas pluviais, sala de reciclagem de resíduos (inclusive óleos vegetais) e gerador de energia para o condomínio.</p></div>
+    <div class="dif rv d2"><div class="no">03</div>
+      <svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v6"/></svg>
+      <h3 class="serif">Homebox individual</h3><p>59 homeboxes com energia elétrica individual. Espaço extra e seguro para guardar o que é seu, com medição própria.</p></div>
+    <div class="dif rv"><div class="no">04</div>
+      <svg class="ic" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 7l-2 2h4l-2-2zM12 17l2-2h-4l2 2z"/></svg>
+      <h3 class="serif">Quatro elevadores</h3><p>Fluxo rápido e confortável para todos os pavimentos, com folga mesmo nos horários de maior movimento.</p></div>
+    <div class="dif rv d1"><div class="no">05</div>
+      <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+      <h3 class="serif">Acessibilidade total</h3><p>Projeto acessível a PCDs, com plataforma de transferência do cadeirante para a área molhada da piscina e boxes PCD.</p></div>
+    <div class="dif rv d2"><div class="no">06</div>
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-6h6v6M14 9h.01"/></svg>
+      <h3 class="serif">Personalização</h3><p>Possibilidade de personalizar espaços e revestimentos, espera para lareira e para spa nas coberturas. Seu apê do seu jeito.</p></div>
+  </div>
+</div></section>
+
+<section id="lazer" class="dark"><div class="wrap">
+  <div class="rv" style="max-width:760px"><div class="tag">Áreas comuns</div>
+    <h2 class="serif">Mais de <em>900 m²</em> de vida em comum.</h2>
+    <p class="lead">Do térreo à cobertura, o Mont'Santo dedica pavimentos inteiros ao encontro, ao bem-estar e à conveniência, pensados para atender todas as unidades com conforto.</p>
+  </div>
+
+  <div class="amgroup rv d1">
+    <div class="gh"><span class="lv">2º Pavimento</span><span class="ds">Vida social · 1.471 m²</span></div>
+    <div class="amen">
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18v-6h12v6M8 12V8h8v4"/></svg><span>Salão de festas · pé-direito duplo</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M3 12c3-4 15-4 18 0M3 12c3 4 15 4 18 0"/></svg><span>Piscina com deck e praia</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8v8H8z"/></svg><span>Espaços gourmet</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18v-6a4 4 0 018 0 4 4 0 018 0v6"/></svg><span>Living</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-4 3-6 6-6s6 2 6 6"/></svg><span>Espaço kids</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M6 4v16M6 8h12l-2 4 2 4H6"/></svg><span>Vestiários e duchas</span></div>
+    </div>
+  </div>
+
+  <div class="amgroup rv d1">
+    <div class="gh"><span class="lv">3º Pavimento</span><span class="ds">Bem-estar · 1.249 m²</span></div>
+    <div class="amen">
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18v-4h12v4M9 14v-3h6v3"/></svg><span>Salão de festas · mezanino</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M6 9v6M18 9v6M6 12h12M3 10v4M21 10v4"/></svg><span>Academia</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20v-8h12v8M9 12V7h6v5"/></svg><span>Terraço</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Jardim e solário</span></div>
+    </div>
+  </div>
+
+  <div class="amgroup rv d1">
+    <div class="gh"><span class="lv">Térreo</span><span class="ds">Conveniência · 1.590 m²</span></div>
+    <div class="amen">
+      <div class="am"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="1"/><path d="M8 21h8M12 17v4"/></svg><span>Coworking</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12M4 20h16"/></svg><span>Hall de entrada</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><path d="M6 20c0-4 3-6 6-6s6 2 6 6"/></svg><span>Espaço pet</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 8h16v12H4zM4 8l2-4h12l2 4"/></svg><span>Mini mercado autônomo*</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/></svg><span>Lavanderia conjunta*</span></div>
+      <div class="am"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z"/></svg><span>Portaria e zeladoria</span></div>
+    </div>
+  </div>
+  <p class="obra-note" style="max-width:820px">*Espaços com possibilidade de implantação de mini mercado autônomo e lavanderia conjunta.</p>
+</div></section>
+
+<section id="pavimentos"><div class="wrap">
+  <div class="rv" style="max-width:720px"><div class="tag">Distribuição</div>
+    <h2 class="serif">Cada pavimento com <em>um propósito</em>.</h2>
+    <p class="lead">Uma implantação que separa o que é conveniência, lazer e moradia, para que cada espaço funcione melhor no dia a dia.</p>
+  </div>
+  <div class="tips" style="margin-top:40px">
+    <div class="tip"><div class="t">Subsolo</div><div class="m">983<small> m²</small></div><p>Acesso de veículos e pedestres, gerador, central de gás, garagens e homeboxes.</p></div>
+    <div class="tip"><div class="t">Térreo</div><div class="m">1.590<small> m²</small></div><p>Hall, coworking, espaço pet, garagens, homeboxes e áreas de uso comum.</p></div>
+    <div class="tip"><div class="t">2º Pavimento</div><div class="m">1.471<small> m²</small></div><p>Salão de festas, espaços gourmet, piscina, living, espaço kids e vestiários.</p></div>
+    <div class="tip"><div class="t">3º Pavimento</div><div class="m">1.249<small> m²</small></div><p>Salão de festas (mezanino), academia, terraço, jardim, solário e vestiários.</p></div>
+  </div>
+</div></section>
+
+<section id="galeria" class="dark"><div class="wrap">
+  <div class="rv" style="max-width:720px"><div class="tag">Galeria</div>
+    <h2 class="serif">Os espaços do <em>Mont'Santo</em>.</h2>
+    <p class="lead">Imagens ilustrativas do projeto. Clique para ampliar.</p>
+  </div>
+  <div class="gtabs rv d1">
+    <button class="gtab on" data-f="fachada">Fachada &amp; áreas</button>
+    <button class="gtab" data-f="lazer">Lazer &amp; bem-estar</button>
+    <button class="gtab" data-f="social">Social &amp; gourmet</button>
+  </div>
+  <div class="mgal" id="mgal">
+    <div class="mg big" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-hero.jpg" alt="Fachada à noite" onerror="this.style.display='none'"><span class="lbl">Fachada · noite</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-dia-torre.jpg" alt="A torre" onerror="this.style.display='none'"><span class="lbl">A torre</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-esquina.jpg" alt="Esquina" onerror="this.style.display='none'"><span class="lbl">Esquina Medianeira</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-portaria.jpg" alt="Portaria" onerror="this.style.display='none'"><span class="lbl">Portaria</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-lateral.jpg" alt="Varandas" onerror="this.style.display='none'"><span class="lbl">Varandas</span></div>
+    <div class="mg wide" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-terreo-dia.jpg" alt="Térreo" onerror="this.style.display='none'"><span class="lbl">Acesso térreo</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-placa-dia.jpg" alt="Acesso" onerror="this.style.display='none'"><span class="lbl">Chegada</span></div>
+
+    <div class="mg big" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-deck-praia.jpg" alt="Piscina com praia" onerror="this.style.display='none'"><span class="lbl">Piscina com deck e praia</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-01.jpg" alt="Piscina" onerror="this.style.display='none'"><span class="lbl">Piscina</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-02.jpg" alt="Deck" onerror="this.style.display='none'"><span class="lbl">Deck</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-hall.jpg" alt="Salão de festas" onerror="this.style.display='none'"><span class="lbl">Salão de festas</span></div>
+    <div class="mg wide" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-duplex.jpg" alt="Pé-direito duplo" onerror="this.style.display='none'"><span class="lbl">Pé-direito duplo</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-academia.jpg" alt="Academia" onerror="this.style.display='none'"><span class="lbl">Academia</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-kids.jpg" alt="Espaço kids" onerror="this.style.display='none'"><span class="lbl">Espaço kids</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-pet.jpg" alt="Espaço pet" onerror="this.style.display='none'"><span class="lbl">Espaço pet</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-zen-green.jpg" alt="Espaço zen" onerror="this.style.display='none'"><span class="lbl">Espaço zen</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-jardim-passeio-green.jpg" alt="Jardim" onerror="this.style.display='none'"><span class="lbl">Jardim &amp; solário</span></div>
+
+    <div class="mg big" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jantar.jpg" alt="Espaço gourmet" onerror="this.style.display='none'"><span class="lbl">Espaço gourmet</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-living.jpg" alt="Gourmet e living" onerror="this.style.display='none'"><span class="lbl">Gourmet &amp; living</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jogos.jpg" alt="Lounge de jogos" onerror="this.style.display='none'"><span class="lbl">Lounge de jogos</span></div>
+    <div class="mg wide" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-01.jpg" alt="Living social" onerror="this.style.display='none'"><span class="lbl">Living social</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-02.jpg" alt="Lounge" onerror="this.style.display='none'"><span class="lbl">Lounge</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-mercado.jpg" alt="Coworking" onerror="this.style.display='none'"><span class="lbl">Coworking</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-office.jpg" alt="Home office" onerror="this.style.display='none'"><span class="lbl">Home office</span></div>
+  </div>
+</div></section>
+
+<section class="concept" style="padding-top:40px">
+  <div class="wrap" style="text-align:center;position:relative;z-index:2">
+    <p class="big" style="color:var(--ink);max-width:24ch">"Uma edificação completa, com <b style="color:var(--gold)">a melhor vista da cidade</b>."</p>
+    <div class="sig" style="color:var(--gold)">Residencial Mont'Santo</div>
+  </div>
+</section>
+
+<section id="local"><div class="wrap split">
+  <div class="rv">
+    <div class="tag">Localização</div>
+    <h2 class="serif">Na principal avenida do <em>bairro Medianeira</em>.</h2>
+    <p class="lead">Av. Nossa Senhora da Medianeira, 1130, esquina com a Rua Dr. Zamenoff. Um endereço com tudo por perto: comércio, serviços, escolas e o maior parque da cidade a poucos minutos a pé.</p>
+    <ul class="poi">
+      <li><b>Compras</b> Shopping Praça Nova, Havan e Stock Center</li>
+      <li><b>Dia a dia</b> Supermercados Beltrame e Tumeleiro</li>
+      <li><b>Lazer</b> Parque e Basílica da Medianeira</li>
+      <li><b>Educação</b> Colégio Medianeira</li>
+      <li><b>Serviços</b> CIOSP e Sec. de Infraestrutura</li>
+      <li><b>Acessos</b> Av. Medianeira e Rua Dr. Zamenoff</li>
+    </ul>
+  </div>
+  <div class="rv d1">
+    <div class="mapbox">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.%20Nossa%20Senhora%20da%20Medianeira%2C%201130%2C%20Santa%20Maria%20-%20RS&output=embed"></iframe>
+    </div>
+  </div>
+</div></section>
+
+<section id="construtora" class="dark"><div class="wrap builder">
+  <div class="rv">
+    <div class="tag">Quem constrói</div>
+    <h2 class="serif">Souza <em>Eng.Arq</em></h2>
+    <p class="lead">Engenharia e arquitetura sob o mesmo teto, com projeto e execução assinados pela própria equipe. O Mont'Santo é a materialização de um projeto pensado nos mínimos detalhes para a família santa-mariense.</p>
+    <div class="mini">
+      <div class="m"><div class="n">14</div><div class="l">Pavimentos</div></div>
+      <div class="m"><div class="n">59</div><div class="l">Unidades</div></div>
+      <div class="m"><div class="n">4</div><div class="l">Elevadores</div></div>
+    </div>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" style="font-size:19px">Souza Eng.Arq</div></div>
+      <div class="f"><div class="k">Projeto arquitetônico</div><div class="v serif" style="font-size:19px">Arq. Nathália Souza</div></div>
+      <div class="f"><div class="k">Projeto</div><div class="v serif" style="font-size:19px">Leonardo Fanfa Pedroso</div></div>
+      <div class="f"><div class="k">Resp. técnico de execução</div><div class="v serif" style="font-size:19px">Eng. Diogo Souza · CREA-RS 196615</div></div>
+      <div class="f"><div class="k">Comercialização</div><div class="v serif" style="font-size:19px">GO Company 360</div></div>
+      <div class="f"><div class="k">Atendimento</div><div class="v serif" style="font-size:19px">Consultores no local</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="social" class="dark" style="background:var(--dark2)"><div class="wrap" style="text-align:center;position:relative;z-index:2">
+  <div class="rv"><div class="tag center">Nas redes</div><h2 class="serif">Acompanhe o <em>Mont'Santo</em> no Instagram.</h2>
+  <p class="lead" style="margin:22px auto 0">Bastidores da obra, novidades e os ambientes do residencial que vai transformar o bairro Medianeira.</p></div>
+  <a class="tour-cta rv d1" href="https://instagram.com/residencial_montsanto" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    Seguir @residencial_montsanto
+  </a>
+</div></section>
+
+<section id="interesse" class="dark" style="background:var(--deep)"><div class="wrap" style="text-align:center;position:relative;z-index:2">
+  <div class="inf-water" style="right:-6vw;top:-8vw">△</div>
+  <div class="rv"><div class="tag center">Tenho interesse</div>
+  <h2 class="serif">Fale com um consultor do <em>Mont'Santo</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Restam poucas unidades. Preencha e envie: você fala com um consultor na hora, pelo WhatsApp, e recebe o material completo.</p></div>
+  <form class="form rv d1" onsubmit="waSubmit(event)">
+    <div class="r2"><input id="f-nome" type="text" placeholder="Nome completo" required><input id="f-tel" type="tel" placeholder="Telefone / WhatsApp" required></div>
+    <input id="f-mail" type="email" placeholder="E-mail">
+    <select id="f-tipo"><option value="">Interesse...</option><option>Apartamento tipo (124 a 186 m²)</option><option>Cobertura (202 a 248 m²)</option><option>Duplex (162 m²)</option><option>Quero investir</option><option>Sou corretor(a)</option></select>
+    <textarea id="f-msg" rows="3" placeholder="Mensagem (opcional)"></textarea>
+    <button type="submit" class="btn solid" style="width:100%;justify-content:center">Falar no WhatsApp agora</button>
+    <div class="priv">Seus dados são usados apenas para contato comercial do Residencial Mont'Santo.</div>
+  </form>
+</div></section>
+
+<footer class="dark"><div class="wrap">
+  <a class="brand-logo" href="#top" style="justify-content:center">
+    <img src="img/logo-montsanto-light.png" alt="Residencial Mont'Santo" style="height:118px">
+  </a>
+  <div class="ms">Uma realização Souza Eng.Arq · Bairro Medianeira · Santa Maria/RS</div>
+  <div class="disc">Av. Nossa Senhora da Medianeira, 1130, esquina com a Rua Dr. Zamenoff, Bairro Medianeira, Santa Maria/RS. Imagens meramente ilustrativas, com sugestões de decoração; os móveis e utensílios não fazem parte do contrato. Acabamentos entregues conforme o Memorial Descritivo. Áreas privativas conforme Coluna 23 da NBR 12.721. Material publicitário, sem constituir oferta ou proposta comercial vinculante.</div>
+</div></footer>
+<div class="credit-band">
+  <div class="cb-mid">Este empreendimento é comercializado e este site foi desenvolvido pela <b>GO Company 360</b>: inteligência, marketing e gestão no mercado imobiliário.</div>
+  <a class="goco-link" href="https://gocompany360.com.br" target="_blank" rel="noopener">gocompany360.com.br &rarr;</a>
+</div>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.26-.1-.45-.15-.64.15-.2.3-.74.94-.9 1.13-.17.2-.33.22-.62.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.5.16-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.2 0-.5.07-.76.37-.26.3-1 .98-1 2.38s1.02 2.76 1.17 2.95c.15.2 2.02 3.08 4.9 4.32.68.3 1.22.47 1.63.6.68.22 1.3.19 1.8.11.55-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34ZM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.15-.43-4.5-1.24l-.32-.19-2.85.9.9-2.78-.2-.33A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+  <span>Fale conosco</span>
+</a>
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><span class="x">&times;</span><div id="lbInner"></div></div>
+<div class="plb" id="plb">
+  <span class="pclose" onclick="plbClose()">&times;</span>
+  <div class="pimgwrap">
+    <button class="pnav prev" onclick="plbMove(-1)" aria-label="Anterior">&#8249;</button>
+    <img id="plbImg" src="" alt="Ambiente do Mont'Santo">
+    <button class="pnav next" onclick="plbMove(1)" aria-label="Próxima">&#8250;</button>
+  </div>
+  <div class="pcap"><div class="t" id="plbTitle"></div><div class="c" id="plbCount"></div></div>
+</div>
+
+<script>
+var WNUM='5555996056881'; /* WhatsApp GO Company 360 (formulário) */
+var WFALE='5555999413258'; /* WhatsApp "Fale conosco" (55) 99941-3258 */
+function id(x){return document.getElementById(x);}
+id('waFloat').href='https://wa.me/'+WFALE+'?text='+encodeURIComponent('Olá! Vim pelo site do Residencial Mont'+String.fromCharCode(39)+'Santo e gostaria de mais informações.');
+function waSubmit(e){e.preventDefault();
+  var n=id('f-nome').value,t=id('f-tel').value,em=id('f-mail').value,tp=id('f-tipo').value,ms=id('f-msg').value;
+  var msg='Olá! Tenho interesse no Residencial Mont'+String.fromCharCode(39)+'Santo.\n\nNome: '+n+'\nTelefone: '+t+(em?('\nE-mail: '+em):'')+(tp?('\nInteresse: '+tp):'')+(ms?('\nMensagem: '+ms):'');
+  window.open('https://wa.me/'+WNUM+'?text='+encodeURIComponent(msg),'_blank');
+}
+// nav shrink + progress
+var nav=id('nav'),prog=id('prog');
+addEventListener('scroll',function(){
+  var st=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?st/h*100:0)+'%';
+  if(st>60){nav.classList.add('small');nav.classList.remove('top');}else{nav.classList.remove('small');nav.classList.add('top');}
+},{passive:true});
+// reveal + counters
+function countUp(el){var to=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||'0'),t0=performance.now();
+  (function t(n){var p=Math.min(1,(n-t0)/1300);p=1-Math.pow(1-p,3);
+   var v=to*p;el.textContent=dec?v.toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}):Math.round(v).toLocaleString('pt-BR');
+   if(p<1)requestAnimationFrame(t);})(t0);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  io.unobserve(e.target);}});},{threshold:.14});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.stats .s').forEach(function(el){io.observe(el);});
+// lightbox simples (galeria)
+var lb=id('lb'),lbInner=id('lbInner');
+document.querySelectorAll('#mgal .mg').forEach(function(box){box.addEventListener('click',function(){
+  var img=box.querySelector('img');lbInner.innerHTML='';
+  if(img && img.style.display!=='none'){var c=img.cloneNode();c.style.cssText='max-width:92vw;max-height:88vh;object-fit:contain;border-radius:10px';lbInner.appendChild(c);}
+  else{var dv=document.createElement('div');dv.className='ph';dv.style.cssText='width:80vw;height:70vh;border-radius:12px';dv.innerHTML='<span class=\"im\">△</span>Imagem em breve';lbInner.appendChild(dv);}
+  lb.classList.add('on');});});
+// galeria: filtro por categoria
+(function(){var tabs=document.querySelectorAll('.gtab'),its=document.querySelectorAll('#mgal .mg');
+function filter(f){its.forEach(function(it){var m=it.dataset.cat===f;it.classList.toggle('hide',!m);if(m){it.classList.remove('show');requestAnimationFrame(function(){it.classList.add('show');});}});}
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter(t.dataset.f);});});
+filter('fachada');})();
+// navegacao ancorada com offset do menu fixo
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var h=this.getAttribute('href'); if(!h||h.length<2)return;
+  var el=document.querySelector(h); if(!el)return;
+  e.preventDefault();
+  var y=el.getBoundingClientRect().top+window.scrollY-44;
+  window.scrollTo({top:y,behavior:'smooth'});
+  var lk=document.getElementById('lk'); if(lk)lk.classList.remove('open');
+});});
+// lightbox "Ver fotos" do apartamento (galeria de ambientes)
+var plb=id('plb'),plbImg=id('plbImg'),pI=0,pP=null;
+var padraoPhotos=[
+ {src:'img/ms-gourmet-living.jpg',t:'Living integrado'},
+ {src:'img/ms-gourmet-jantar.jpg',t:'Espaço gourmet'},
+ {src:'img/ms-gourmet-jogos.jpg',t:'Lounge de jogos'},
+ {src:'img/ms-living-lounge-01.jpg',t:'Living social'},
+ {src:'img/ms-living-lounge-02.jpg',t:'Lounge'},
+ {src:'img/ms-coworking-office.jpg',t:'Home office'}
+];
+function padraoOpen(){pP={name:'Ambientes ilustrativos',photos:padraoPhotos};pI=0;plbShow();plb.classList.add('on');}
+function plbShow(){var ph=pP.photos;plbImg.src=ph[pI].src;
+ id('plbTitle').textContent=ph[pI].t||pP.name;
+ id('plbCount').textContent=(pI+1)+' / '+ph.length;}
+function plbMove(d){if(!pP)return;pI=(pI+d+pP.photos.length)%pP.photos.length;plbShow();}
+function plbClose(){plb.classList.remove('on');}
+plb.addEventListener('click',function(e){if(e.target===plb)plbClose();});
+document.addEventListener('keydown',function(e){if(!plb.classList.contains('on'))return;if(e.key==='Escape')plbClose();if(e.key==='ArrowRight')plbMove(1);if(e.key==='ArrowLeft')plbMove(-1);});
+</script>
+
+</body>
+</html>
