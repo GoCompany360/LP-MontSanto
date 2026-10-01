@@ -19,17 +19,18 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 
 :root{
   /* ---- Identidade MONT'SANTO: laranja da marca + neutros quentes + espresso ---- */
-  --bg:#f5efe6; --panel:#fffdf9; --alt:#ece3d4; --marble:#f1e9dc;
-  --deep:#17110d; --dark:#1e1611; --dark2:#28201a;
-  --ink:#241c16; --mut:#8a7e72; --line:rgba(36,28,22,.13); --lineD:rgba(226,87,31,.20);
+  /* tema claro: fundo off-white + laranja da marca + cinza escuro */
+  --bg:#f6f3ee; --panel:#ffffff; --alt:#ffffff; --marble:#f1ede6;
+  --deep:#1f1f1f; --dark:#2b2b2b; --dark2:#383838;
+  --ink:#2b2b2b; --ink2:#4d4d4d; --mut:#7a7a7a; --line:rgba(43,43,43,.12); --lineD:rgba(226,87,31,.22);
   --gold:#e2571f; --gold2:#f2894f; --gold-soft:#cf4a17; --cream:#f2e9db;
-  /* Tipografia MONT'SANTO (modelo 2): Lora (serifada tradicional) - Archivo (marca/labels) - Manrope (corpo) */
-  --serif:'Lora',Georgia,serif; --sans:'Manrope',system-ui,sans-serif; --caps:'Archivo',sans-serif;
+  /* Tipografia MONT'SANTO: Montserrat em todo o site */
+  --serif:'Montserrat',system-ui,sans-serif; --sans:'Montserrat',system-ui,sans-serif; --caps:'Montserrat',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -60,8 +61,9 @@ img{display:block;max-width:100%}
 .nav .brand-logo img{height:56px}
 .nav.small .brand-logo img{height:48px}
 .nav.top .links a{color:rgba(255,255,255,.86)}
-.links{display:flex;align-items:center;gap:26px}
-.links a{color:var(--mut);text-decoration:none;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;transition:.25s;position:relative}
+.links{display:flex;align-items:center;gap:22px}
+.brand-logo{flex-shrink:0}
+.links a{color:var(--mut);text-decoration:none;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;transition:.25s;position:relative;white-space:nowrap}
 .links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:.3s}
 .links a:not(.cta):hover{color:var(--gold)}.links a:not(.cta):hover::after{width:100%}
 .links a.cta{border:1px solid var(--gold);color:var(--gold);padding:10px 22px;border-radius:999px}
@@ -79,11 +81,12 @@ img{display:block;max-width:100%}
 .hero .bg .ph .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 75% 35%,#000,transparent 75%)}
 .hero .bg img{width:100%;height:114%;object-fit:cover;position:absolute;inset:0;opacity:.82}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(6,9,11,.9),rgba(6,9,11,.35) 56%,transparent),linear-gradient(0deg,#0f0a07,transparent 46%)}
-.hero .in{position:relative;z-index:2;max-width:920px}
+.hero .in{position:relative;z-index:2;width:100%}
+.hero h1,.hero .slogan{max-width:820px}
 .eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold2);font-family:var(--caps);font-size:12px;letter-spacing:3.5px;text-transform:uppercase;font-weight:500}
 .eyebrow::before{content:"";width:44px;height:1px;background:var(--gold2)}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.6vw,74px);line-height:1.04;color:#fff;margin:20px 0 18px;letter-spacing:-.3px}
-.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,70px);line-height:1.08;color:#fff;margin:20px 0 18px;letter-spacing:-1.2px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold2)}
 .hero .slogan{font-size:clamp(15px,1.55vw,19px);color:#e6e2d8;font-weight:300;max-width:56ch}
 .actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent}
@@ -94,7 +97,7 @@ img{display:block;max-width:100%}
 .scroll-cue .line::after{content:"";position:absolute;left:0;top:0;width:1px;height:18px;background:var(--gold2);animation:cueSlide 2.4s cubic-bezier(.7,0,.3,1) infinite}
 @keyframes cueSlide{0%{transform:translateY(-18px);opacity:0}25%{opacity:1}100%{transform:translateY(56px);opacity:0}}
 /* selo */
-.badge{position:absolute;right:34px;bottom:34px;z-index:3;text-align:right;color:#cfc8b7;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;line-height:1.7;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.badge{position:absolute;right:34px;bottom:112px;z-index:3;text-align:right;color:#cfc8b7;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;line-height:1.7;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
 .badge b{color:var(--gold2);font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:1px;text-transform:none}
 @media(max-width:760px){.badge{display:none}}
 /* STATS */
@@ -113,8 +116,8 @@ section{padding:120px 0;position:relative;overflow:hidden}
 .tag{color:var(--gold);font-family:var(--caps);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:12px}
 .tag::before{content:"▲";font-size:8px;color:var(--gold);position:relative;top:-1px;letter-spacing:0}
 .tag.center{justify-content:center}
-h2{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,62px);line-height:1.04;color:var(--ink);letter-spacing:-.5px}
-h2 em{font-style:italic;color:var(--gold)}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,54px);line-height:1.1;color:var(--ink);letter-spacing:-1px}
+h2 em{font-style:italic;font-weight:500;color:var(--gold)}
 .lead{color:var(--mut);font-size:clamp(16px,1.7vw,19px);font-weight:300;max-width:66ch;margin-top:22px}
 .dark{background:var(--dark);color:var(--cream)}
 .dark h2{color:#fff}.dark h2 em{color:var(--gold2)}.dark .tag{color:var(--gold2)}.dark .tag::before{color:var(--gold2)}.dark .lead{color:#cdc7ba}
@@ -123,17 +126,19 @@ h2 em{font-style:italic;color:var(--gold)}
 .rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
 /* conceito (dark band) */
 .concept{text-align:center}
-.concept .big{font-family:var(--serif);font-size:clamp(26px,3.8vw,48px);color:var(--cream);font-weight:500;max-width:26ch;margin:0 auto;line-height:1.24;position:relative;z-index:2}
+.concept .big{font-family:var(--serif);font-size:clamp(22px,3.2vw,40px);color:var(--cream);font-weight:500;letter-spacing:-.5px;max-width:26ch;margin:0 auto;line-height:1.24;position:relative;z-index:2}
 .concept .big b{color:var(--gold2);font-weight:600;font-style:italic}
 .concept .sig{margin-top:30px;color:var(--gold2);font-size:12px;letter-spacing:3px;text-transform:uppercase;position:relative;z-index:2}
 /* sobre + ficha */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
-.ficha{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ficha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .ficha .f{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;transition:.3s}
 .ficha .f:hover{border-color:var(--gold);box-shadow:0 12px 28px rgba(20,28,32,.07);transform:translateY(-3px)}
 .ficha .f .k{color:var(--gold);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
-.ficha .f .v{color:var(--ink);font-size:15.5px;font-weight:600;margin-top:7px}
+.ficha .f .v{color:var(--ink);font-size:17px;font-weight:600;margin-top:7px;line-height:1.35}
+.ficha .f .v .reg{display:block;font-size:12.5px;font-weight:500;color:var(--mut);letter-spacing:.3px;margin-top:3px}
+@media(max-width:560px){.ficha{gap:10px}.ficha .f{padding:16px;border-radius:14px}.ficha .f .k{font-size:9.5px;letter-spacing:1.2px;line-height:1.5}.ficha .f .v{font-size:15px}.builder .ficha{grid-template-columns:1fr}.builder .ficha .f .k{font-size:10px;letter-spacing:1.8px}.builder .ficha .f .v{font-size:16.5px}}
 /* images */
 .imgbox{position:relative;overflow:hidden;background:var(--alt);border-radius:18px}
 .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)}
@@ -195,21 +200,28 @@ h2 em{font-style:italic;color:var(--gold)}
 .amgroup .gh{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--lineD)}
 .amgroup .gh .lv{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold2)}
 .amgroup .gh .ds{color:#b7b1a4;font-size:12px;letter-spacing:2px;text-transform:uppercase}
-.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:860px){.amen{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.amen{grid-template-columns:1fr}}
-.am{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.03);border:1px solid var(--lineD);border-radius:14px;padding:16px 18px;transition:.3s}
-.am:hover{border-color:var(--gold);background:rgba(226,87,31,.06);transform:translateY(-3px)}
-.am svg{width:24px;height:24px;stroke:var(--gold2);fill:none;stroke-width:1.4;flex:0 0 24px}
-.am span{font-size:14.5px;color:#e7e1d5;font-weight:500}
+.floors{margin-top:44px;border-top:1px solid var(--lineD)}
+.floor{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--lineD)}
+.fl-h{display:flex;flex-direction:column;gap:4px}
+.fl-h .lv{font-size:21px;font-weight:600;color:var(--gold2);letter-spacing:-.3px;line-height:1.2}
+.fl-h .ds{color:#b7b1a4;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border:1px solid var(--lineD);border-radius:999px;background:rgba(255,255,255,.03);font-size:13.5px;font-weight:500;color:#e7e1d5;line-height:1.3;transition:.25s}
+.chips li:hover{border-color:var(--gold2);background:rgba(226,87,31,.08)}
+.chips svg{width:18px;height:18px;flex:0 0 18px;stroke:var(--gold2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){.floor{grid-template-columns:1fr;gap:14px;padding:22px 0}.chips{gap:8px}.chips li{font-size:13px;padding:8px 13px 8px 10px}.chips svg{width:16px;height:16px;flex-basis:16px}}
 /* tipologia chips */
-.tips{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.tip{flex:1;min-width:200px;border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel);transition:.35s}
+.tips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.tips.t6{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media(max-width:1100px){.tips.t6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.tips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tip{min-width:0;border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel);transition:.35s}
 .tip:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 16px 34px rgba(20,28,32,.08)}
 .tip .t{color:var(--gold);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
 .tip .m{font-family:var(--serif);font-size:34px;color:var(--ink);font-weight:600;margin:8px 0 4px}
 .tip .m small{font-size:15px;color:var(--mut)}
 .tip p{color:var(--mut);font-size:14px}
+@media(max-width:560px){.tips,.tips.t6{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tip{min-width:0;padding:18px 16px;border-radius:14px}.tip .t{font-size:10px;letter-spacing:1.3px}.tip .m{font-size:27px;margin:6px 0 2px}.tip .m small{font-size:13px}.tip p{font-size:12.5px;line-height:1.45}.amgroup .gh{flex-wrap:wrap;gap:4px 12px}.amgroup .gh .lv{font-size:22px}}
 /* carrossel de plantas */
 .carousel{margin-top:44px}
 .stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
@@ -231,7 +243,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .gtab{padding:11px 22px;border:1px solid var(--lineD);border-radius:999px;background:transparent;color:#cdc7ba;font-family:var(--sans);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s}
 .gtab:hover{border-color:var(--gold2);color:#fff}
 .gtab.on{background:var(--gold);border-color:var(--gold);color:#2a1206}
-.mgal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:34px}
+.mgal{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:34px}
 @media(max-width:820px){.mgal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}}
 .mg{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;background:var(--dark2);opacity:0;transform:scale(.96);transition:opacity .55s cubic-bezier(.16,.8,.3,1),transform .55s cubic-bezier(.16,.8,.3,1)}
 .mg.show{opacity:1;transform:none}
@@ -249,12 +261,25 @@ h2 em{font-style:italic;color:var(--gold)}
 .lb.on{display:flex}
 .lb .x{position:absolute;top:22px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
 /* localização */
-.mapbox{margin-top:34px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.mapbox iframe{width:100%;height:440px;border:0;display:block;filter:invert(91%) hue-rotate(180deg) brightness(.95) contrast(.9)}
-.poi{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:640px){.poi{grid-template-columns:1fr}}
-.poi li{color:var(--ink);font-size:15.5px;font-weight:400;display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
-.poi li b{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.8px;min-width:104px;text-transform:uppercase}
+.mapcard{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 50px rgba(36,28,22,.08)}
+.mapcard .mc-map{position:relative;height:420px;background:#e9e2d6}
+.mapcard .mc-fallback-old{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--mut);font-size:13px;text-decoration:none;background:radial-gradient(circle at 50% 45%,rgba(226,87,31,.10),transparent 60%),repeating-linear-gradient(0deg,rgba(36,28,22,.05) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(36,28,22,.05) 0 1px,transparent 1px 44px),#efe8dc}
+.mapcard .mc-fallback svg{width:38px;height:38px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mapcard .mc-fallback b{color:var(--ink);font-size:14px}
+.mapcard iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(.2)}
+.mapcard .mc-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-top:1px solid var(--line)}
+.mapcard .mc-addr{display:flex;gap:12px;align-items:flex-start}
+.mapcard .mc-addr svg{width:22px;height:22px;flex:0 0 22px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.mapcard .mc-addr b{display:block;font-size:14.5px;color:var(--ink);font-weight:600;line-height:1.3}
+.mapcard .mc-addr span{font-size:12.5px;color:var(--mut);line-height:1.4}
+.mapcard .mc-btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:11px 18px;border-radius:999px;background:var(--gold);color:#fff;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;transition:.25s}
+.mapcard .mc-btn:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.mapcard .mc-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:560px){.mapcard .mc-map{height:320px}.mapcard .mc-foot{flex-direction:column;align-items:stretch}.mapcard .mc-btn{justify-content:center}}
+.poi{list-style:none;margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.poi li{display:flex;flex-direction:column;gap:3px;padding:14px 0;border-top:1px solid var(--line);color:var(--ink);font-size:15px;line-height:1.45}
+.poi li b{color:var(--gold);font-weight:700;font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+@media(max-width:420px){.poi{grid-template-columns:1fr}}
 /* obra */
 .obra{display:grid;gap:22px;margin-top:38px;max-width:820px}
 .obra .row .top{display:flex;justify-content:space-between;color:var(--ink);font-weight:600;margin-bottom:10px;font-size:15px}
@@ -291,13 +316,13 @@ footer{padding:64px 0 40px;text-align:center;position:relative;z-index:2}
 footer .brand-logo{margin:0 auto 18px;justify-content:center}
 footer .ms{color:var(--gold2);font-size:13px;margin-bottom:14px}
 footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-height:1.6}
-.credit-band{background:#17110d;padding:22px 44px;display:flex;align-items:center;justify-content:space-between;gap:28px;border-top:1px solid var(--lineD)}
+.credit-band{background:#17110d;padding:26px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;border-top:1px solid var(--lineD)}
 .credit-band .goco-logo{height:22px;width:auto;flex:0 0 auto;opacity:.92}
-.credit-band .cb-mid{flex:1;text-align:center;color:#8d8779;font-size:11px;letter-spacing:.3px;line-height:1.5;max-width:72ch;margin:0 auto}
-.credit-band .cb-mid b{color:var(--gold2);font-weight:600}
+.credit-band .cb-mid{text-align:center;color:#8d8779;font-size:12px;letter-spacing:.2px;line-height:1.6;max-width:92ch;margin:0 auto}
+.credit-band .cb-mid b{color:var(--gold2);font-weight:600;white-space:nowrap}
 .credit-band .goco-link{flex:0 0 auto;color:var(--gold);font-weight:700;font-size:11px;letter-spacing:.5px;text-decoration:none;white-space:nowrap;transition:.25s}
 .credit-band .goco-link:hover{color:var(--gold2)}
-@media(max-width:820px){.credit-band{flex-direction:column;text-align:center;gap:14px;padding:26px 24px}.credit-band .cb-mid{text-align:center}}
+
 /* conceito com imagem */
 .concept-split{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;position:relative;z-index:2;text-align:left}
 @media(max-width:860px){.concept-split{grid-template-columns:1fr;gap:34px}}
@@ -340,28 +365,208 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
 .unit .pic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .nav .brand-logo img{height:60px}
 .nav.small .brand-logo img{height:50px}
-/* PLANTAS - grade lado a lado */
-.plangrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
-@media(max-width:900px){.plangrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.plangrid{grid-template-columns:1fr}}
-.plan-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:.35s;display:flex;flex-direction:column}
-.plan-card:hover{border-color:var(--gold);box-shadow:0 18px 40px rgba(36,28,22,.10);transform:translateY(-4px)}
-.plan-card .pimg{position:relative;background:#d0d0d0}
-.plan-card .pimg img{width:100%;height:300px;object-fit:contain;display:block}
-.plan-card .zoom{position:absolute;top:12px;right:12px;background:rgba(23,17,13,.72);color:var(--gold2);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:20px;opacity:0;transition:.3s;border:1px solid var(--lineD)}
-.plan-card:hover .zoom{opacity:1}
+/* PLANTAS - carrossel (pavimento tipo) */
+.plan-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:zoom-in;transition:border-color .3s,box-shadow .3s;display:flex;flex-direction:column;user-select:none;-webkit-user-select:none}
+.plan-card:hover{border-color:var(--gold);box-shadow:0 14px 30px rgba(36,28,22,.10)}
+.plan-card .pimg{position:relative;background:#d0d0d0;aspect-ratio:3/2;overflow:hidden}
+.plan-card .pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,.8,.3,1);-webkit-user-drag:none;pointer-events:none}
+.plan-card:hover .pimg img{transform:scale(1.04)}
+.zoom{position:absolute;bottom:12px;right:12px;z-index:3;display:inline-flex;align-items:center;gap:6px;background:rgba(23,17,13,.78);color:var(--gold2);font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:6px 12px 6px 9px;border-radius:20px;transition:.3s;pointer-events:none}
+.zoom svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.plan-card .zoom{opacity:0}.plan-card:hover .zoom{opacity:1}
+@media(hover:none){.plan-card .zoom{opacity:1}}
 .plan-card .pcap2{padding:16px 20px 18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
-.plan-card .pcap2 .nm{font-family:var(--serif);font-size:20px;color:var(--ink);font-weight:600;line-height:1.1}
-.plan-card .pcap2 .sp{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.2px}
+.plan-card .pcap2 .nm{font-size:19px;color:var(--ink);font-weight:600;line-height:1.2}
+.plan-card .pcap2 .sp{color:var(--gold);font-size:13px;font-weight:700}
+.pslider{margin-top:24px}
+.ps-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;padding:4px 0 14px;cursor:grab;outline:none}
+.ps-track::-webkit-scrollbar{display:none}
+.ps-track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.ps-track .plan-card{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start}
+.ps-ctrl{display:flex;align-items:center;gap:22px;margin-top:14px}
+.ps-count{display:flex;align-items:baseline;gap:6px;font-weight:700;color:var(--ink);min-width:62px}
+.ps-count b{font-size:22px;color:var(--gold);font-weight:700}
+.ps-count span{font-size:13px;color:var(--mut)}
+.ps-bar{flex:1;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.ps-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .35s}
+.ps-hint{font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);font-weight:600;white-space:nowrap}
+.ps-btns{display:flex;gap:10px}
+.ps-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s;flex:0 0 46px}
+.ps-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ps-btn:hover:not(:disabled){background:var(--gold);border-color:var(--gold);color:#fff}
+.ps-btn:disabled{opacity:.35;cursor:default}
+@media(max-width:900px){.ps-track .plan-card{flex-basis:calc((100% - 20px)/2)}}
+@media(max-width:560px){
+ .ps-track{gap:12px;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px}
+ .ps-track .plan-card{flex-basis:86%}
+ .ps-btns{display:none}.ps-ctrl{gap:16px}
+}
+/* COBERTURAS - visualizador */
+.cobviewer{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 24px 50px rgba(36,28,22,.07)}
+.cv-stage{position:relative;background:#d0d0d0;aspect-ratio:3/2;cursor:zoom-in;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.cv-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .45s,transform .7s cubic-bezier(.16,.8,.3,1);-webkit-user-drag:none;pointer-events:none}
+.cv-imgs img.on{opacity:1;transform:none}
+.cv-stage .ps-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,253,249,.92)}
+.cv-prev{left:14px}.cv-next{right:14px}
+.cv-side{padding:34px 32px;display:flex;flex-direction:column;justify-content:center;gap:26px;border-left:1px solid var(--line)}
+.cv-head{display:flex;flex-direction:column;gap:4px}
+.cv-k{font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.cv-title{font-size:clamp(34px,4vw,48px);font-weight:700;color:var(--ink);line-height:1.05;letter-spacing:-1px}
+.cv-spec{font-size:15px;font-weight:700;color:var(--gold)}
+.cv-extra{font-size:13px;color:var(--mut)}
+.cv-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cv-tab{text-align:left;border:1px solid var(--line);border-radius:14px;padding:13px 15px;background:transparent;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:1px;transition:.25s;color:var(--ink)}
+.cv-tab:hover{border-color:var(--gold)}
+.cv-tab .cv-n{font-size:11px;letter-spacing:1.6px;color:var(--mut);font-weight:700}
+.cv-tab .cv-m{font-size:21px;font-weight:700;line-height:1.2}
+.cv-tab .cv-m small{font-size:12px;color:var(--mut);font-weight:600}
+.cv-tab .cv-d{font-size:11.5px;color:var(--mut);line-height:1.35}
+.cv-tab.on{border-color:var(--gold);background:rgba(226,87,31,.07);box-shadow:inset 0 0 0 1px var(--gold)}
+.cv-tab.on .cv-n{color:var(--gold)}
+@media(max-width:900px){.cobviewer{grid-template-columns:1fr}.cv-side{border-left:0;border-top:1px solid var(--line);padding:24px 22px;gap:20px}}
+@media(max-width:560px){.cv-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.cv-tab{padding:10px 8px;text-align:center;border-radius:12px}.cv-tab .cv-d{display:none}.cv-tab .cv-m{font-size:16px}.cv-tab .cv-m small{font-size:10px}.cv-tab .cv-n{font-size:10px;letter-spacing:1px}.cv-stage .ps-btn{width:38px;height:38px;flex-basis:38px}.cv-prev{left:8px}.cv-next{right:8px}}
 .plan-note{margin-top:26px;color:var(--mut);font-size:13px;font-style:italic}
-@media(max-width:900px){
- section{padding:84px 0}
+@media(max-width:900px){section{padding:84px 0}}
+@media(max-width:560px){section{padding:68px 0}.wrap{padding:0 20px}.eyebrow{font-size:10.5px;letter-spacing:2.2px;gap:10px}.eyebrow::before{width:24px}.gtabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin-left:-20px;margin-right:-20px;padding:0 20px}.gtabs::-webkit-scrollbar{display:none}.gtab{flex:0 0 auto;padding:10px 16px;font-size:11px}.tour-cta{padding:14px 20px;font-size:11px;letter-spacing:.8px;gap:9px}.dif{padding:28px 24px}.dif h3{font-size:21px}.unit .side{padding:34px 22px}.unit .pic{min-height:300px}.lead{margin-top:16px}}
+@media(max-width:1180px){
  .burg{display:block}
- .links{position:fixed;top:0;right:-100%;height:100vh;width:82%;max-width:340px;flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:40px;background:var(--panel);transition:.4s;z-index:9998}
+ .nav.small{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(245,239,230,.97)}
+ .links{position:fixed;top:0;bottom:0;right:-100%;height:100vh;height:100dvh;width:82%;max-width:340px;flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:40px;background:var(--panel);transition:.4s;z-index:9998}
  .links.open{right:0}.links a{font-size:16px;color:var(--ink)!important}
  .links a.cta{color:var(--gold)!important;border-color:var(--gold)}
 }
 
+/* ===== TEMA CLARO: fundo off-white, laranja da marca e cinza escuro ===== */
+section{background:var(--bg)}
+section.alt{background:#fff;--panel:#f7f4ef}
+.nav.small{background:rgba(246,243,238,.95)}
+.hero .bg .ph{background:linear-gradient(180deg,#2e2e2e,#1f1f1f)}
+.hero::after{background:linear-gradient(90deg,rgba(24,24,24,.86),rgba(24,24,24,.32) 56%,transparent),linear-gradient(0deg,rgba(24,24,24,.72),transparent 46%)}
+.btn.solid{color:#fff}
+.stats{background:#fff}
+.inf-water{color:rgba(226,87,31,.06)}
+.concept .big{color:var(--ink)}.concept .big b{color:var(--gold)}.concept .sig{color:var(--gold)}
+.concept-img img{border-color:var(--line);box-shadow:0 24px 50px rgba(43,43,43,.16)}
+.concept-img::after{border-color:rgba(255,255,255,.55)}
+.unit{border-color:var(--line);box-shadow:0 24px 50px rgba(43,43,43,.07)}
+.unit .side{background:#fff}
+.unit{margin-top:36px}.unit .side .big{color:var(--ink)}.unit .side .big small{color:var(--gold);font-size:.24em;letter-spacing:1.4px;line-height:1.4}
+.unit .side li{color:var(--ink2)}.unit .side li b{color:var(--gold)}
+.unit .pic{background:#e9e6e1}
+.unit .pic.padrao-pic:hover .padrao-cap b{color:#fff}
+.amgroup .gh{border-bottom-color:var(--line)}.amgroup .gh .lv{color:var(--gold)}.amgroup .gh .ds{color:var(--mut)}
+.floors{border-top-color:var(--line)}.floor{border-bottom-color:var(--line)}
+.fl-h .lv{color:var(--gold)}.fl-h .ds{color:var(--mut)}
+.chips li{background:var(--panel);border-color:var(--line);color:var(--ink)}
+.chips li:hover{border-color:var(--gold);background:#fff3ec}
+.chips svg{stroke:var(--gold)}
+.obra-note{color:var(--mut)}
+.gtab{background:var(--panel);border-color:var(--line);color:var(--ink2)}
+.gtab:hover{border-color:var(--gold);color:var(--gold)}
+.gtab.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.mg{background:#e9e6e1}
+.tour-cta{border-color:var(--gold);color:var(--gold)}.tour-cta:hover{color:#fff}
+.form input,.form select,.form textarea{background:#fff;border-color:rgba(43,43,43,.18);color:var(--ink)}
+.form input::placeholder,.form textarea::placeholder{color:#9a9a9a}
+.form select{color:var(--ink2)}.form option{color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(226,87,31,.12)}
+.form .priv{color:var(--mut)}
+.wa{background:rgba(43,43,43,.94);color:#fff;border-color:rgba(226,87,31,.5);box-shadow:0 12px 30px rgba(43,43,43,.25)}
+.wa:hover{background:#2b2b2b}
+.zoom{background:rgba(43,43,43,.86);color:#fff}.zoom svg{stroke:#f2894f}
+.mapcard .mc-fallback-old{background:radial-gradient(circle at 50% 45%,rgba(226,87,31,.10),transparent 60%),repeating-linear-gradient(0deg,rgba(43,43,43,.05) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(43,43,43,.05) 0 1px,transparent 1px 44px),#eeebe6}
+.mapcard .mc-map{background:#eeebe6}
+.lb{background:rgba(30,30,30,.95)}
+.credit-band{background:var(--dark);border-top:0}
+.credit-band .cb-mid{color:#c4c4c4}.credit-band .cb-mid b{color:#f2894f}
+.credit-band .goco-link{color:#f2894f}.credit-band .goco-link:hover{color:#fff}
+
+/* ===== galeria em carrossel ===== */
+.gslider{margin-top:30px}
+#psGal .mg{flex:0 0 calc((100% - 40px)/2.5);aspect-ratio:4/3;scroll-snap-align:start;border-radius:18px;background:#e9e6e1}
+#psGal .mg.hide{display:none}
+#psGal .mg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+#psGal .mg::after{opacity:1;background:linear-gradient(0deg,rgba(20,20,20,.55),transparent 45%)}
+#psGal .mg .lbl{opacity:1;transform:none;font-size:17px;left:18px;bottom:16px}
+@media(max-width:900px){#psGal .mg{flex-basis:72%}}
+@media(max-width:560px){#psGal .mg{flex-basis:86%;border-radius:14px}#psGal .mg .lbl{font-size:15px}}
+/* ===== mapa: imagem + mapa interativo sob demanda ===== */
+.mc-poster{position:absolute;inset:0;display:block;overflow:hidden}
+.mc-poster img{width:100%;height:100%;object-fit:cover;object-position:48% 50%;display:block;transition:transform .8s cubic-bezier(.16,.8,.3,1)}
+.mc-poster:hover img{transform:scale(1.03)}
+.mc-credit{position:absolute;left:10px;bottom:8px;font-size:10px;color:#5f6368;background:rgba(255,255,255,.85);padding:2px 7px;border-radius:4px}
+.mc-live{position:absolute;top:14px;left:14px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:0;background:#fff;color:var(--ink);font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.3px;cursor:pointer;box-shadow:0 6px 18px rgba(43,43,43,.18);transition:.25s}
+.mc-live:hover{background:var(--gold);color:#fff}
+.mc-live svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mc-map.live .mc-live,.mc-map.live .mc-poster{display:none}
+.mc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* ===== quem constroi: foto do profissional ===== */
+.builder .ficha{grid-template-columns:1fr}
+.ficha .f.person{display:flex;align-items:center;gap:18px;padding:16px 20px}
+.avatar{flex:0 0 72px;width:72px;height:72px;border-radius:50%;overflow:hidden;position:relative;background:#ece8e1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b9b2a8' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7'/%3E%3C/svg%3E") center/34px no-repeat;border:1.5px dashed rgba(226,87,31,.45)}
+.avatar:has(img){border:2px solid #fff;box-shadow:0 4px 14px rgba(43,43,43,.12)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar.logo img{object-fit:contain;padding:10px;background:#fff}
+.pinfo{min-width:0}
+@media(max-width:560px){.avatar{flex-basis:58px;width:58px;height:58px;background-size:28px}.ficha .f.person{gap:14px;padding:14px 16px}}
+/* ===== fundo com gradientes suaves ===== */
+section{background:radial-gradient(900px 540px at 100% 0%,rgba(226,87,31,.075),transparent 65%),radial-gradient(760px 480px at 0% 100%,rgba(43,43,43,.045),transparent 65%),var(--bg)}
+section.alt{background:radial-gradient(860px 520px at 0% 0%,rgba(226,87,31,.065),transparent 65%),radial-gradient(700px 460px at 100% 100%,rgba(226,87,31,.045),transparent 65%),linear-gradient(180deg,#fff,#fbf9f6)}
+section::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(43,43,43,.09) 1px,transparent 1.3px);background-size:22px 22px;-webkit-mask-image:radial-gradient(42% 46% at 88% 82%,#000,transparent 72%);mask-image:radial-gradient(42% 46% at 88% 82%,#000,transparent 72%)}
+section.alt::before{-webkit-mask-image:radial-gradient(40% 44% at 10% 16%,#000,transparent 72%);mask-image:radial-gradient(40% 44% at 10% 16%,#000,transparent 72%)}
+section>.wrap{position:relative;z-index:1}
+.stats{background:linear-gradient(90deg,#fff,#fbf8f4 50%,#fff)}
+
+/* ===== WhatsApp: botao verde oficial ===== */
+.wa{background:#25D366;color:#fff;border:0;box-shadow:0 12px 28px rgba(37,211,102,.35)}
+.wa::before{display:none}
+.wa:hover{background:#1ebe5b;box-shadow:0 16px 34px rgba(37,211,102,.45)}
+.wa svg{fill:#fff}
+.f-status{display:none;text-align:center;font-size:13px;color:var(--ink2);background:#e9f9ef;border:1px solid rgba(37,211,102,.35);border-radius:12px;padding:10px 14px}
+.f-status a{color:#128c4b;font-weight:700}
+/* ===== Areas comuns interativas ===== */
+.floorx{margin-top:44px}
+.ft-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ft{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:20px 22px;border-radius:18px;border:1px solid var(--line);background:var(--panel);font-family:inherit;cursor:pointer;transition:.3s;color:var(--ink);position:relative;overflow:hidden}
+.ft::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--gold);transition:.4s}
+.ft:hover{border-color:var(--gold);transform:translateY(-2px)}
+.ft-n{font-size:22px;font-weight:700;letter-spacing:-.4px;line-height:1.2}
+.ft-d{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);font-weight:600}
+.ft-c{font-size:12px;color:var(--gold);font-weight:700;margin-top:6px}
+.ft.on{background:var(--dark);border-color:var(--dark);color:#fff;box-shadow:0 18px 36px rgba(43,43,43,.18)}
+.ft.on .ft-d{color:#bdbdbd}.ft.on .ft-c{color:#f2894f}.ft.on::after{width:100%}
+.fx-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:22px;margin-top:22px;align-items:stretch}
+.fx-photo{position:relative;border-radius:20px;overflow:hidden;background:#e9e6e1;min-height:440px;box-shadow:0 24px 50px rgba(43,43,43,.10)}
+.fx-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform 1.2s cubic-bezier(.16,.8,.3,1)}
+.fx-photo img.fade{opacity:0;transform:scale(1.03)}
+.fx-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,20,20,.6),transparent 45%);pointer-events:none}
+.fx-cap{position:absolute;left:22px;bottom:20px;z-index:2;color:#fff;font-size:20px;font-weight:600;font-style:italic;letter-spacing:-.3px}
+.fx-hint{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);color:var(--ink2);font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:999px}
+.fx-hint svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+.fp{display:none}.fp.on{display:block}
+.amc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.amc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:14px;text-align:left;padding:20px 18px;min-height:132px;border-radius:18px;border:1px solid var(--line);background:var(--panel);font-family:inherit;color:var(--ink);cursor:default;transition:transform .3s,border-color .3s,box-shadow .3s,background .3s;opacity:0;transform:translateY(14px)}
+.fp.on .amc{animation:amcIn .5s cubic-bezier(.16,.8,.3,1) forwards}
+.fp.on .amc:nth-child(2){animation-delay:.05s}.fp.on .amc:nth-child(3){animation-delay:.1s}.fp.on .amc:nth-child(4){animation-delay:.15s}.fp.on .amc:nth-child(5){animation-delay:.2s}.fp.on .amc:nth-child(6){animation-delay:.25s}
+@keyframes amcIn{to{opacity:1;transform:none}}
+.amc.has{cursor:pointer}
+.amc:hover{border-color:var(--gold);box-shadow:0 14px 30px rgba(43,43,43,.08)}
+.amc-ic{width:60px;height:60px;border-radius:16px;background:rgba(226,87,31,.10);display:flex;align-items:center;justify-content:center;transition:.3s}
+.amc-ic svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:.3s}
+.amc:hover .amc-ic,.amc.on .amc-ic{background:var(--gold)}
+.amc:hover .amc-ic svg,.amc.on .amc-ic svg{stroke:#fff}
+.amc.on{border-color:var(--gold);background:#fff7f2}
+.amc-t{font-size:15px;font-weight:600;line-height:1.35}
+.amc-ph{position:absolute;top:16px;right:16px;width:16px;height:16px;stroke:var(--mut);fill:none;stroke-width:1.8;opacity:.7}
+@media(max-width:900px){.fx-body{grid-template-columns:1fr}.fx-photo{min-height:0;aspect-ratio:16/10}}
+@media(max-width:560px){
+ .ft-tabs{display:flex;overflow-x:auto;scrollbar-width:none;gap:10px;margin:0 -20px;padding:0 20px 4px}
+ .ft-tabs::-webkit-scrollbar{display:none}
+ .ft{flex:0 0 auto;min-width:168px;padding:14px 16px;border-radius:14px}.ft-n{font-size:18px}.ft-d{font-size:9.5px;letter-spacing:1.1px}
+ .fx-photo{border-radius:16px}.fx-cap{font-size:16px;left:16px;bottom:14px}.fx-hint{font-size:10px;top:10px;left:10px}
+ .amc-grid{gap:10px}.amc{padding:16px 14px;min-height:118px;gap:12px;border-radius:14px}
+ .amc-ic{width:50px;height:50px;border-radius:14px}.amc-ic svg{width:26px;height:26px}.amc-t{font-size:13.5px}
+}
 </style>
 </head>
 <body>
@@ -411,7 +616,7 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   <div class="s"><div class="n" data-count="900">0</div><div class="l">m² de área social</div></div>
 </div></div>
 
-<section class="concept dark">
+<section class="concept">
   <div class="inf-water" style="left:-6vw;top:-4vw">△</div>
   <div class="wrap concept-split">
     <div class="rv concept-img">
@@ -426,7 +631,7 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </div>
 </section>
 
-<section id="sobre"><div class="wrap split">
+<section id="sobre" class="alt"><div class="wrap split">
   <div class="rv">
     <div class="tag">O empreendimento</div>
     <h2 class="serif">Uma edificação completa, <em>imponente no seu estilo</em>.</h2>
@@ -434,19 +639,19 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </div>
   <div class="rv d1">
     <div class="ficha">
-      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" style="font-size:19px">Souza Eng.Arq</div></div>
-      <div class="f"><div class="k">Tipologias</div><div class="v serif" style="font-size:19px">De 124 a 248 m²</div></div>
-      <div class="f"><div class="k">Torre</div><div class="v serif" style="font-size:19px">14 pavimentos · 59 unidades</div></div>
-      <div class="f"><div class="k">Garagem</div><div class="v serif" style="font-size:19px">128 boxes + 59 homeboxes</div></div>
-      <div class="f"><div class="k">Elevadores</div><div class="v serif" style="font-size:19px">4 elevadores</div></div>
-      <div class="f"><div class="k">Localização</div><div class="v serif" style="font-size:19px">Bairro Medianeira · Santa Maria/RS</div></div>
-      <div class="f"><div class="k">Comercialização</div><div class="v serif" style="font-size:19px">GO Company 360</div></div>
-      <div class="f"><div class="k">Modalidade</div><div class="v serif" style="font-size:19px">Últimas unidades</div></div>
+      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" >Souza Eng.Arq</div></div>
+      <div class="f"><div class="k">Tipologias</div><div class="v serif" >De 124 a 248 m²</div></div>
+      <div class="f"><div class="k">Torre</div><div class="v serif" >14 pavimentos · 59 unidades</div></div>
+      <div class="f"><div class="k">Garagem</div><div class="v serif" >128 boxes + 59 homeboxes</div></div>
+      <div class="f"><div class="k">Elevadores</div><div class="v serif" >4 elevadores</div></div>
+      <div class="f"><div class="k">Localização</div><div class="v serif" >Bairro Medianeira · Santa Maria/RS</div></div>
+      <div class="f"><div class="k">Comercialização</div><div class="v serif" >GO Company 360</div></div>
+      <div class="f"><div class="k">Modalidade</div><div class="v serif" >Últimas unidades</div></div>
     </div>
   </div>
 </div></section>
 
-<section id="unidade" class="dark"><div class="wrap">
+<section id="unidade"><div class="wrap">
   <div class="rv" style="max-width:760px"><div class="tag">Os apartamentos</div>
     <h2 class="serif">De 124 a 248 m², <em>do seu jeito</em>.</h2>
     <p class="lead">Plantas dos finais 01 ao 06, do 4º ao 13º pavimento, e quatro coberturas exclusivas no 14º. Ambientes pensados para receber, com possibilidade de personalizar espaços e revestimentos.</p>
@@ -469,29 +674,9 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
     </div>
   </div>
 
-  <div style="margin-top:44px" class="rv d1">
-    <div class="amgroup" style="margin-top:0">
-      <div class="gh"><span class="lv">Pavimento tipo</span><span class="ds">4º ao 13º andar</span></div>
-    </div>
-    <div class="tips" style="margin-top:0">
-      <div class="tip"><div class="t">Final 01</div><div class="m">186<small> m²</small></div><p>3 suítes</p></div>
-      <div class="tip"><div class="t">Final 02</div><div class="m">124<small> m²</small></div><p>1 suíte + 2 dormitórios</p></div>
-      <div class="tip"><div class="t">Final 03</div><div class="m">149<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
-      <div class="tip"><div class="t">Final 04</div><div class="m">146<small> m²</small></div><p>2 suítes + 2 dormitórios</p></div>
-      <div class="tip"><div class="t">Final 05 · Duplex</div><div class="m">162<small> m²</small></div><p>1 suíte + 2 dormitórios</p></div>
-      <div class="tip"><div class="t">Final 06</div><div class="m">152<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
-    </div>
-    <div class="amgroup"><div class="gh"><span class="lv">Coberturas</span><span class="ds">14º andar</span></div></div>
-    <div class="tips" style="margin-top:0">
-      <div class="tip"><div class="t">Cobertura 1401</div><div class="m">248<small> m²</small></div><p>3 suítes</p></div>
-      <div class="tip"><div class="t">Cobertura 1402</div><div class="m">202<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
-      <div class="tip"><div class="t">Cobertura 1403</div><div class="m">238<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
-      <div class="tip"><div class="t">Cobertura 1404</div><div class="m">223<small> m²</small></div><p>2 suítes + 1 dormitório</p></div>
-    </div>
-  </div>
 </div></section>
 
-<section id="diferenciais"><div class="wrap">
+<section id="diferenciais" class="alt"><div class="wrap">
   <div class="rv" style="max-width:720px"><div class="tag">Diferenciais</div>
     <h2 class="serif">Detalhes que fazem <em>toda a diferença</em>.</h2>
   </div>
@@ -517,49 +702,56 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </div>
 </div></section>
 
-<section id="lazer" class="dark"><div class="wrap">
+<section id="lazer"><div class="wrap">
   <div class="rv" style="max-width:760px"><div class="tag">Áreas comuns</div>
     <h2 class="serif">Mais de <em>900 m²</em> de vida em comum.</h2>
     <p class="lead">Do térreo à cobertura, o Mont'Santo dedica pavimentos inteiros ao encontro, ao bem-estar e à conveniência, pensados para atender todas as unidades com conforto.</p>
   </div>
 
-  <div class="amgroup rv d1">
-    <div class="gh"><span class="lv">2º Pavimento</span><span class="ds">Vida social · 1.471 m²</span></div>
-    <div class="amen">
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18v-6h12v6M8 12V8h8v4"/></svg><span>Salão de festas · pé-direito duplo</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M3 12c3-4 15-4 18 0M3 12c3 4 15 4 18 0"/></svg><span>Piscina com deck e praia</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8v8H8z"/></svg><span>Espaços gourmet</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18v-6a4 4 0 018 0 4 4 0 018 0v6"/></svg><span>Living</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-4 3-6 6-6s6 2 6 6"/></svg><span>Espaço kids</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M6 4v16M6 8h12l-2 4 2 4H6"/></svg><span>Vestiários e duchas</span></div>
+  <div class="floorx rv d1" id="floorX">
+    <div class="ft-tabs" role="tablist" aria-label="Escolha o pavimento">
+      <button class="ft on" role="tab" aria-selected="true" data-i="0"><span class="ft-n">Térreo</span><span class="ft-d">Conveniência · 1.590 m²</span><span class="ft-c">6 espaços</span></button>
+      <button class="ft" role="tab" aria-selected="false" data-i="1"><span class="ft-n">2º Pavimento</span><span class="ft-d">Vida social · 1.471 m²</span><span class="ft-c">6 espaços</span></button>
+      <button class="ft" role="tab" aria-selected="false" data-i="2"><span class="ft-n">3º Pavimento</span><span class="ft-d">Bem-estar · 1.249 m²</span><span class="ft-c">4 espaços</span></button>
     </div>
-  </div>
-
-  <div class="amgroup rv d1">
-    <div class="gh"><span class="lv">3º Pavimento</span><span class="ds">Bem-estar · 1.249 m²</span></div>
-    <div class="amen">
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18v-4h12v4M9 14v-3h6v3"/></svg><span>Salão de festas · mezanino</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M6 9v6M18 9v6M6 12h12M3 10v4M21 10v4"/></svg><span>Academia</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20v-8h12v8M9 12V7h6v5"/></svg><span>Terraço</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Jardim e solário</span></div>
-    </div>
-  </div>
-
-  <div class="amgroup rv d1">
-    <div class="gh"><span class="lv">Térreo</span><span class="ds">Conveniência · 1.590 m²</span></div>
-    <div class="amen">
-      <div class="am"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="1"/><path d="M8 21h8M12 17v4"/></svg><span>Coworking</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12M4 20h16"/></svg><span>Hall de entrada</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><path d="M6 20c0-4 3-6 6-6s6 2 6 6"/></svg><span>Espaço pet</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M4 8h16v12H4zM4 8l2-4h12l2 4"/></svg><span>Mini mercado autônomo*</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/></svg><span>Lavanderia conjunta*</span></div>
-      <div class="am"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z"/></svg><span>Portaria e zeladoria</span></div>
+    <div class="fx-body">
+      <div class="fx-photo"><img src="img/ms-entrada-portaria.jpg" alt="Hall de entrada" id="fxImg"><span class="fx-cap" id="fxCap">Hall de entrada</span><span class="fx-hint">Toque em um espaço com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg> para ver a imagem</span></div>
+      <div class="fx-panels">
+      <div class="fp on" role="tabpanel" data-i="0" data-img="img/ms-entrada-portaria.jpg" data-cap="Hall de entrada">
+        <div class="amc-grid">
+          <button class="amc has" type="button" data-img="img/ms-coworking-office.jpg" data-cap="Coworking"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"/><path d="M20.054 15.987H3.946"/></svg></span><span class="amc-t">Coworking</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has on" type="button" data-img="img/ms-entrada-portaria.jpg" data-cap="Hall de entrada"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 21H2"/><path d="M10 3H7a2 2 0 00-2 2v16"/><path d="M14 12h.01"/><path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z"/><path d="M22 21h-3"/></svg></span><span class="amc-t">Hall de entrada</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-espaco-pet.jpg" data-cap="Espaço pet"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span class="amc-t">Espaço pet</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-coworking-mercado.jpg" data-cap="Mini mercado autônomo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 11-1 9"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"/><path d="M4.5 15.5h15"/><path d="m5 11 4-7"/><path d="m9 11 1 9"/></svg></span><span class="amc-t">Mini mercado autônomo*</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc" type="button" data-cap="Lavanderia conjunta"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3"/><path d="M17 6h.01"/><rect width="18" height="20" x="3" y="2" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5"/></svg></span><span class="amc-t">Lavanderia conjunta*</span></button>
+          <button class="amc has" type="button" data-img="img/ms-fachada-terreo-dia.jpg" data-cap="Portaria e zeladoria"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="amc-t">Portaria e zeladoria</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+        </div>
+      </div>
+      <div class="fp" role="tabpanel" data-i="1" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck e praia">
+        <div class="amc-grid">
+          <button class="amc has" type="button" data-img="img/ms-salao-festas-duplex.jpg" data-cap="Salão de festas · pé-direito duplo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg></span><span class="amc-t">Salão de festas · pé-direito duplo</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has on" type="button" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck e praia"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"/></svg></span><span class="amc-t">Piscina com deck e praia</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-gourmet-jantar.jpg" data-cap="Espaços gourmet"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><span class="amc-t">Espaços gourmet</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-living-lounge-01.jpg" data-cap="Living"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg></span><span class="amc-t">Living</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-espaco-kids.jpg" data-cap="Espaço kids"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="12" x="3" y="8" rx="1"/><path d="M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3"/><path d="M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3"/></svg></span><span class="amc-t">Espaço kids</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc" type="button" data-cap="Vestiários e duchas"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/></svg></span><span class="amc-t">Vestiários e duchas</span></button>
+        </div>
+      </div>
+      <div class="fp" role="tabpanel" data-i="2" data-img="img/ms-academia.jpg" data-cap="Academia">
+        <div class="amc-grid">
+          <button class="amc has" type="button" data-img="img/ms-salao-festas-hall.jpg" data-cap="Salão de festas · mezanino"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/></svg></span><span class="amc-t">Salão de festas · mezanino</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has on" type="button" data-img="img/ms-academia.jpg" data-cap="Academia"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg></span><span class="amc-t">Academia</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc" type="button" data-cap="Terraço"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span><span class="amc-t">Terraço</span></button>
+          <button class="amc has" type="button" data-img="img/ms-jardim-passeio-green.jpg" data-cap="Jardim e solário"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/></svg></span><span class="amc-t">Jardim e solário</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
   <p class="obra-note" style="max-width:820px">*Espaços com possibilidade de implantação de mini mercado autônomo e lavanderia conjunta.</p>
 </div></section>
 
-<section id="pavimentos"><div class="wrap">
+<section id="pavimentos" class="alt"><div class="wrap">
   <div class="rv" style="max-width:720px"><div class="tag">Distribuição</div>
     <h2 class="serif">Cada pavimento com <em>um propósito</em>.</h2>
     <p class="lead">Uma implantação que separa o que é conveniência, lazer e moradia, para que cada espaço funcione melhor no dia a dia.</p>
@@ -572,33 +764,57 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </div>
 </div></section>
 
-<section id="plantas" class="alt"><div class="wrap">
+<section id="plantas"><div class="wrap">
   <div class="rv" style="max-width:760px"><div class="tag">Plantas</div>
     <h2 class="serif">Todas as plantas do <em>empreendimento</em>.</h2>
-    <p class="lead">Do apartamento tipo às coberturas duplex, conheça cada opção de planta com suas metragens e configurações. Clique para ampliar.</p>
+    <p class="lead">Do apartamento tipo às coberturas, conheça cada opção de planta com suas metragens e configurações. Toque na planta para ampliar.</p>
   </div>
 
-  <div class="amgroup rv d1" style="margin-top:40px"><div class="gh"><span class="lv" style="color:var(--gold)">Pavimento tipo</span><span class="ds" style="color:var(--mut)">4º ao 13º andar</span></div></div>
-  <div class="plangrid rv d1">
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-01.jpg" alt="Planta Final 01" loading="lazy"></div><div class="pcap2"><span class="nm">Final 01</span><span class="sp">186 m² · 3 suítes</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-02.jpg" alt="Planta Final 02" loading="lazy"></div><div class="pcap2"><span class="nm">Final 02</span><span class="sp">124 m² · 1 suíte + 2 dormitórios</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-03.jpg" alt="Planta Final 03" loading="lazy"></div><div class="pcap2"><span class="nm">Final 03</span><span class="sp">149 m² · 2 suítes + 1 dormitório</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-04.jpg" alt="Planta Final 04" loading="lazy"></div><div class="pcap2"><span class="nm">Final 04</span><span class="sp">146 m² · 2 suítes + 2 dormitórios</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-duplex-05.jpg" alt="Planta Duplex Final 05" loading="lazy"></div><div class="pcap2"><span class="nm">Duplex Final 05</span><span class="sp">162 m² · 1 suíte + 2 dormitórios</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-final-06.jpg" alt="Planta Final 06" loading="lazy"></div><div class="pcap2"><span class="nm">Final 06</span><span class="sp">152 m² · 2 suítes + 1 dormitório</span></div></div>
+  <div class="amgroup rv d1" style="margin-top:44px"><div class="gh"><span class="lv" style="color:var(--gold)">Pavimento tipo</span><span class="ds" style="color:var(--mut)">4º ao 13º andar · 6 plantas</span></div></div>
+  <div class="pslider rv d1" id="psTipo">
+    <div class="ps-track" tabindex="0" aria-label="Plantas do pavimento tipo">
+      <div class="plan-card" role="group" aria-label="Final 01"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-01.jpg" alt="Planta Final 01" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 01</span><span class="sp">186 m² · 3 suítes</span></div></div>
+      <div class="plan-card" role="group" aria-label="Final 02"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-02.jpg" alt="Planta Final 02" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 02</span><span class="sp">124 m² · 1 suíte + 2 dormitórios</span></div></div>
+      <div class="plan-card" role="group" aria-label="Final 03"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-03.jpg" alt="Planta Final 03" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 03</span><span class="sp">149 m² · 2 suítes + 1 dormitório</span></div></div>
+      <div class="plan-card" role="group" aria-label="Final 04"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-04.jpg" alt="Planta Final 04" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 04</span><span class="sp">146 m² · 2 suítes + 2 dormitórios</span></div></div>
+      <div class="plan-card" role="group" aria-label="Duplex Final 05"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-duplex-05.jpg" alt="Planta Duplex Final 05" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Duplex Final 05</span><span class="sp">162 m² · 1 suíte + 2 dormitórios</span></div></div>
+      <div class="plan-card" role="group" aria-label="Final 06"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-06.jpg" alt="Planta Final 06" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 06</span><span class="sp">152 m² · 2 suítes + 1 dormitório</span></div></div>
+    </div>
+    <div class="ps-ctrl">
+      <div class="ps-count"><b>01</b><span>/ 06</span></div>
+      <div class="ps-bar"><i></i></div>
+      <div class="ps-hint">Arraste para o lado</div>
+      <div class="ps-btns"><button class="ps-btn prev" aria-label="Planta anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><button class="ps-btn next" aria-label="Próxima planta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+    </div>
   </div>
 
-  <div class="amgroup rv d1" style="margin-top:44px"><div class="gh"><span class="lv" style="color:var(--gold)">Coberturas</span><span class="ds" style="color:var(--mut)">14º andar</span></div></div>
-  <div class="plangrid rv d1">
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1401.jpg" alt="Planta Cobertura 1401" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1401</span><span class="sp">248 m² · 3 suítes</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1402.jpg" alt="Planta Cobertura 1402" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1402</span><span class="sp">202 m² · 2 suítes + 1 dormitório</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1403.jpg" alt="Planta Cobertura 1403" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1403</span><span class="sp">238 m² · 2 suítes + 1 dormitório</span></div></div>
-    <div class="plan-card"><div class="pimg"><span class="zoom">Ampliar</span><img src="img/planta-cob-1404.jpg" alt="Planta Cobertura 1404" loading="lazy"></div><div class="pcap2"><span class="nm">Cobertura 1404</span><span class="sp">223 m² · 2 suítes + 1 dormitório</span></div></div>
+  <div class="amgroup rv d1" style="margin-top:64px"><div class="gh"><span class="lv" style="color:var(--gold)">Coberturas</span><span class="ds" style="color:var(--mut)">14º andar · 4 coberturas exclusivas</span></div></div>
+  <div class="cobviewer rv d1" id="cobViewer">
+    <div class="cv-stage">
+      <div class="cv-imgs">
+        <img src="img/planta-cob-1401.jpg" alt="Planta Cobertura 1401" loading="lazy" draggable="false" class="on">
+        <img src="img/planta-cob-1402.jpg" alt="Planta Cobertura 1402" loading="lazy" draggable="false">
+        <img src="img/planta-cob-1403.jpg" alt="Planta Cobertura 1403" loading="lazy" draggable="false">
+        <img src="img/planta-cob-1404.jpg" alt="Planta Cobertura 1404" loading="lazy" draggable="false">
+      </div>
+      <button class="ps-btn cv-prev" aria-label="Cobertura anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="ps-btn cv-next" aria-label="Próxima cobertura"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      <span class="zoom cv-zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span>
+    </div>
+    <div class="cv-side">
+      <div class="cv-head"><span class="cv-k">Cobertura</span><span class="cv-title" id="cvTitle">1401</span><span class="cv-spec" id="cvSpec">248 m² · 3 suítes</span><span class="cv-extra">Terraço com espera para spa</span></div>
+      <div class="cv-tabs" role="tablist" aria-label="Escolha a cobertura">
+        <button class="cv-tab on" data-i="0" role="tab" aria-selected="true"><span class="cv-n">1401</span><span class="cv-m">248<small> m²</small></span><span class="cv-d">3 suítes</span></button>
+        <button class="cv-tab" data-i="1" role="tab" aria-selected="false"><span class="cv-n">1402</span><span class="cv-m">202<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+        <button class="cv-tab" data-i="2" role="tab" aria-selected="false"><span class="cv-n">1403</span><span class="cv-m">238<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+        <button class="cv-tab" data-i="3" role="tab" aria-selected="false"><span class="cv-n">1404</span><span class="cv-m">223<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+      </div>
+    </div>
   </div>
   <p class="plan-note">Plantas e metragens ilustrativas, conforme Memorial Descritivo. Áreas privativas conforme Coluna 23 da NBR 12.721.</p>
 </div></section>
 
-<section id="galeria" class="dark"><div class="wrap">
+<section id="galeria" class="alt"><div class="wrap">
   <div class="rv" style="max-width:720px"><div class="tag">Galeria</div>
     <h2 class="serif">Os espaços do <em>Mont'Santo</em>.</h2>
     <p class="lead">Imagens ilustrativas do projeto. Clique para ampliar.</p>
@@ -608,37 +824,45 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
     <button class="gtab" data-f="lazer">Lazer &amp; bem-estar</button>
     <button class="gtab" data-f="social">Social &amp; gourmet</button>
   </div>
-  <div class="mgal" id="mgal">
-    <div class="mg big" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-hero.jpg" alt="Fachada à noite" onerror="this.style.display='none'"><span class="lbl">Fachada · noite</span></div>
-    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-dia-torre.jpg" alt="A torre" onerror="this.style.display='none'"><span class="lbl">A torre</span></div>
-    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-esquina.jpg" alt="Esquina" onerror="this.style.display='none'"><span class="lbl">Esquina Medianeira</span></div>
-    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-portaria.jpg" alt="Portaria" onerror="this.style.display='none'"><span class="lbl">Portaria</span></div>
-    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-lateral.jpg" alt="Varandas" onerror="this.style.display='none'"><span class="lbl">Varandas</span></div>
-    <div class="mg wide" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-terreo-dia.jpg" alt="Térreo" onerror="this.style.display='none'"><span class="lbl">Acesso térreo</span></div>
-    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-placa-dia.jpg" alt="Acesso" onerror="this.style.display='none'"><span class="lbl">Chegada</span></div>
+  <div class="pslider gslider rv d1" id="psGal">
+  <div class="ps-track" id="mgal" tabindex="0" aria-label="Galeria de imagens">
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-hero.jpg" alt="Fachada à noite" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Fachada · noite</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-dia-torre.jpg" alt="A torre" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">A torre</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-esquina.jpg" alt="Esquina" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Esquina Medianeira</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-portaria.jpg" alt="Portaria" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Portaria</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-noite-lateral.jpg" alt="Varandas" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Varandas</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-terreo-dia.jpg" alt="Térreo" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Acesso térreo</span></div>
+    <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-placa-dia.jpg" alt="Acesso" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Chegada</span></div>
 
-    <div class="mg big" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-deck-praia.jpg" alt="Piscina com praia" onerror="this.style.display='none'"><span class="lbl">Piscina com deck e praia</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-01.jpg" alt="Piscina" onerror="this.style.display='none'"><span class="lbl">Piscina</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-02.jpg" alt="Deck" onerror="this.style.display='none'"><span class="lbl">Deck</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-hall.jpg" alt="Salão de festas" onerror="this.style.display='none'"><span class="lbl">Salão de festas</span></div>
-    <div class="mg wide" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-duplex.jpg" alt="Pé-direito duplo" onerror="this.style.display='none'"><span class="lbl">Pé-direito duplo</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-academia.jpg" alt="Academia" onerror="this.style.display='none'"><span class="lbl">Academia</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-kids.jpg" alt="Espaço kids" onerror="this.style.display='none'"><span class="lbl">Espaço kids</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-pet.jpg" alt="Espaço pet" onerror="this.style.display='none'"><span class="lbl">Espaço pet</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-zen-green.jpg" alt="Espaço zen" onerror="this.style.display='none'"><span class="lbl">Espaço zen</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-jardim-passeio-green.jpg" alt="Jardim" onerror="this.style.display='none'"><span class="lbl">Jardim &amp; solário</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-deck-praia.jpg" alt="Piscina com praia" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Piscina com deck e praia</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-01.jpg" alt="Piscina" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Piscina</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-02.jpg" alt="Deck" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Deck</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-hall.jpg" alt="Salão de festas" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Salão de festas</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-duplex.jpg" alt="Pé-direito duplo" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Pé-direito duplo</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-academia.jpg" alt="Academia" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Academia</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-kids.jpg" alt="Espaço kids" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço kids</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-pet.jpg" alt="Espaço pet" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço pet</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-zen-green.jpg" alt="Espaço zen" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço zen</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-jardim-passeio-green.jpg" alt="Jardim" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Jardim &amp; solário</span></div>
 
-    <div class="mg big" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jantar.jpg" alt="Espaço gourmet" onerror="this.style.display='none'"><span class="lbl">Espaço gourmet</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-living.jpg" alt="Gourmet e living" onerror="this.style.display='none'"><span class="lbl">Gourmet &amp; living</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jogos.jpg" alt="Lounge de jogos" onerror="this.style.display='none'"><span class="lbl">Lounge de jogos</span></div>
-    <div class="mg wide" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-01.jpg" alt="Living social" onerror="this.style.display='none'"><span class="lbl">Living social</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-02.jpg" alt="Lounge" onerror="this.style.display='none'"><span class="lbl">Lounge</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-mercado.jpg" alt="Coworking" onerror="this.style.display='none'"><span class="lbl">Coworking</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-office.jpg" alt="Home office" onerror="this.style.display='none'"><span class="lbl">Home office</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jantar.jpg" alt="Espaço gourmet" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço gourmet</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-living.jpg" alt="Gourmet e living" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Gourmet &amp; living</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jogos.jpg" alt="Lounge de jogos" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Lounge de jogos</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-01.jpg" alt="Living social" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Living social</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-02.jpg" alt="Lounge" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Lounge</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-mercado.jpg" alt="Coworking" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Coworking</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-office.jpg" alt="Home office" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Home office</span></div>
+  </div>
+  <div class="ps-ctrl">
+    <div class="ps-count"><b>01</b><span>/ 07</span></div>
+    <div class="ps-bar"><i></i></div>
+    <div class="ps-hint">Arraste para o lado</div>
+    <div class="ps-btns"><button class="ps-btn prev" aria-label="Imagem anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><button class="ps-btn next" aria-label="Próxima imagem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+  </div>
   </div>
 </div></section>
 
-<section class="concept" style="padding-top:40px">
+<section class="concept quote" style="padding-bottom:0">
   <div class="wrap" style="text-align:center;position:relative;z-index:2">
     <p class="big" style="color:var(--ink);max-width:24ch">"Uma edificação completa, com <b style="color:var(--gold)">a melhor vista da cidade</b>."</p>
     <div class="sig" style="color:var(--gold)">Residencial Mont'Santo</div>
@@ -660,13 +884,20 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
     </ul>
   </div>
   <div class="rv d1">
-    <div class="mapbox">
-      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.%20Nossa%20Senhora%20da%20Medianeira%2C%201130%2C%20Santa%20Maria%20-%20RS&output=embed"></iframe>
+    <div class="mapcard">
+      <div class="mc-map" id="mcMap">
+        <a class="mc-poster" href="https://www.google.com/maps/place/Residencial+Mont'Santo/@-29.7023277,-53.8201454,16z/data=!4m6!3m5!1s0x9503cb55e312cd0b:0xfe225810a2f01e8e!8m2!3d-29.7021945!4d-53.8155683!16s%2Fg%2F11vb7s3rvl" target="_blank" rel="noopener" aria-label="Abrir o Residencial Mont'Santo no Google Maps"><img src="img/mapa-montsanto.jpg" alt="Mapa: Residencial Mont'Santo na Av. Nossa Senhora da Medianeira, Santa Maria/RS" loading="lazy"><span class="mc-credit">Mapa © Google</span></a>
+        <button class="mc-live" type="button" id="mcLive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.1 4.4 9.9 2.6a2 2 0 0 0-1.6 0L3.6 4.7A1 1 0 0 0 3 5.6v13.3a1 1 0 0 0 1.4.9l4-1.8a2 2 0 0 1 1.6 0l4.2 1.8a2 2 0 0 0 1.6 0l4.6-2.1a1 1 0 0 0 .6-.9V3.5a1 1 0 0 0-1.4-.9l-4 1.8a2 2 0 0 1-1.5 0z"/><path d="M15 5.8v15M9 3v15"/></svg>Ver mapa interativo</button>
+      </div>
+      <div class="mc-foot">
+        <div class="mc-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><div><b>Residencial Mont'Santo</b><span>Av. N. Sra. da Medianeira, 1130 · Santa Maria/RS</span></div></div>
+        <a class="mc-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=-29.7021945,-53.8155683" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Como chegar</a>
+      </div>
     </div>
   </div>
 </div></section>
 
-<section id="construtora" class="dark"><div class="wrap builder">
+<section id="construtora" class="alt"><div class="wrap builder">
   <div class="rv">
     <div class="tag">Quem constrói</div>
     <h2 class="serif">Souza <em>Eng.Arq</em></h2>
@@ -679,17 +910,15 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </div>
   <div class="rv d1">
     <div class="ficha">
-      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" style="font-size:19px">Souza Eng.Arq</div></div>
-      <div class="f"><div class="k">Projeto arquitetônico</div><div class="v serif" style="font-size:19px">Arq. Nathália Souza</div></div>
-      <div class="f"><div class="k">Projeto</div><div class="v serif" style="font-size:19px">Leonardo Fanfa Pedroso</div></div>
-      <div class="f"><div class="k">Resp. técnico de execução</div><div class="v serif" style="font-size:19px">Eng. Diogo Souza · CREA-RS 196615</div></div>
-      <div class="f"><div class="k">Comercialização</div><div class="v serif" style="font-size:19px">GO Company 360</div></div>
-      <div class="f"><div class="k">Atendimento</div><div class="v serif" style="font-size:19px">Consultores no local</div></div>
+      <div class="f person"><span class="avatar logo"><img src="img/equipe-souza-engarq.png" alt="Souza Eng.Arq" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Incorporação e construção</div><div class="v serif">Souza Eng.Arq</div></div></div>
+      <div class="f person"><span class="avatar"><img src="img/equipe-nathalia-souza.jpg" alt="Arq. Nathália Souza" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto arquitetônico</div><div class="v serif">Arq. Nathália Souza</div></div></div>
+      <div class="f person"><span class="avatar"><img src="img/equipe-leonardo-pedroso.jpg" alt="Leonardo Fanfa Pedroso" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto</div><div class="v serif">Leonardo Fanfa Pedroso</div></div></div>
+      <div class="f person"><span class="avatar"><img src="img/equipe-diogo-souza.jpg" alt="Eng. Diogo Souza" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Resp. técnico de execução</div><div class="v serif">Eng. Diogo Souza<small class="reg">CREA-RS 196615</small></div></div></div>
     </div>
   </div>
 </div></section>
 
-<section id="social" class="dark" style="background:var(--dark2)"><div class="wrap" style="text-align:center;position:relative;z-index:2">
+<section id="social"><div class="wrap" style="text-align:center;position:relative;z-index:2">
   <div class="rv"><div class="tag center">Nas redes</div><h2 class="serif">Acompanhe o <em>Mont'Santo</em> no Instagram.</h2>
   <p class="lead" style="margin:22px auto 0">Bastidores da obra, novidades e os ambientes do residencial que vai transformar o bairro Medianeira.</p></div>
   <a class="tour-cta rv d1" href="https://instagram.com/residencial_montsanto" target="_blank" rel="noopener">
@@ -698,34 +927,27 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
   </a>
 </div></section>
 
-<section id="interesse" class="dark" style="background:var(--deep)"><div class="wrap" style="text-align:center;position:relative;z-index:2">
+<section id="interesse" class="alt"><div class="wrap" style="text-align:center;position:relative;z-index:2">
   <div class="inf-water" style="right:-6vw;top:-8vw">△</div>
   <div class="rv"><div class="tag center">Tenho interesse</div>
   <h2 class="serif">Fale com um consultor do <em>Mont'Santo</em>.</h2>
   <p class="lead" style="margin:22px auto 0">Restam poucas unidades. Preencha e envie: você fala com um consultor na hora, pelo WhatsApp, e recebe o material completo.</p></div>
   <form class="form rv d1" onsubmit="waSubmit(event)">
     <div class="r2"><input id="f-nome" type="text" placeholder="Nome completo" required><input id="f-tel" type="tel" placeholder="Telefone / WhatsApp" required></div>
-    <input id="f-mail" type="email" placeholder="E-mail">
     <select id="f-tipo"><option value="">Interesse...</option><option>Apartamento tipo (124 a 186 m²)</option><option>Cobertura (202 a 248 m²)</option><option>Duplex (162 m²)</option><option>Quero investir</option><option>Sou corretor(a)</option></select>
     <textarea id="f-msg" rows="3" placeholder="Mensagem (opcional)"></textarea>
     <button type="submit" class="btn solid" style="width:100%;justify-content:center">Falar no WhatsApp agora</button>
+    <div class="f-status" id="f-status" role="status"></div>
     <div class="priv">Seus dados são usados apenas para contato comercial do Residencial Mont'Santo.</div>
   </form>
 </div></section>
 
-<footer class="dark"><div class="wrap">
-  <a class="brand-logo" href="#top" style="justify-content:center">
-    <img src="img/logo-montsanto-light.png" alt="Residencial Mont'Santo" style="height:118px">
-  </a>
-  <div class="ms">Uma realização Souza Eng.Arq · Bairro Medianeira · Santa Maria/RS</div>
-  <div class="disc">Av. Nossa Senhora da Medianeira, 1130, esquina com a Rua Dr. Zamenoff, Bairro Medianeira, Santa Maria/RS. Imagens meramente ilustrativas, com sugestões de decoração; os móveis e utensílios não fazem parte do contrato. Acabamentos entregues conforme o Memorial Descritivo. Áreas privativas conforme Coluna 23 da NBR 12.721. Material publicitário, sem constituir oferta ou proposta comercial vinculante.</div>
-</div></footer>
 <div class="credit-band">
   <div class="cb-mid">Este empreendimento é comercializado e este site foi desenvolvido pela <b>GO Company 360</b>: inteligência, marketing e gestão no mercado imobiliário.</div>
   <a class="goco-link" href="https://gocompany360.com.br" target="_blank" rel="noopener">gocompany360.com.br &rarr;</a>
 </div>
 
-<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a class="wa" id="waFloat" href="https://wa.me/5555999413258?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Residencial%20Mont'Santo%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.26-.1-.45-.15-.64.15-.2.3-.74.94-.9 1.13-.17.2-.33.22-.62.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.5.16-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.2 0-.5.07-.76.37-.26.3-1 .98-1 2.38s1.02 2.76 1.17 2.95c.15.2 2.02 3.08 4.9 4.32.68.3 1.22.47 1.63.6.68.22 1.3.19 1.8.11.55-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34ZM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.15-.43-4.5-1.24l-.32-.19-2.85.9.9-2.78-.2-.33A8.2 8.2 0 1 1 12 20.2Z"/></svg>
   <span>Fale conosco</span>
 </a>
@@ -741,14 +963,18 @@ footer .disc{color:#8d8779;font-size:12px;max-width:82ch;margin:0 auto;line-heig
 </div>
 
 <script>
-var WNUM='5555996056881'; /* WhatsApp GO Company 360 (formulário) */
-var WFALE='5555999413258'; /* WhatsApp "Fale conosco" (55) 99941-3258 */
+var WNUM='5555999413258'; /* WhatsApp que recebe o formulário e o botão: (55) 99941-3258 */
+var WFALE=WNUM;
 function id(x){return document.getElementById(x);}
 id('waFloat').href='https://wa.me/'+WFALE+'?text='+encodeURIComponent('Olá! Vim pelo site do Residencial Mont'+String.fromCharCode(39)+'Santo e gostaria de mais informações.');
+function waOpen(url){var w=null;try{w=window.open(url,'_blank');if(w){try{w.opener=null;}catch(_){}}}catch(_){}
+  if(!w){try{window.top.location.href=url;}catch(_){location.href=url;}}}
 function waSubmit(e){e.preventDefault();
-  var n=id('f-nome').value,t=id('f-tel').value,em=id('f-mail').value,tp=id('f-tipo').value,ms=id('f-msg').value;
-  var msg='Olá! Tenho interesse no Residencial Mont'+String.fromCharCode(39)+'Santo.\n\nNome: '+n+'\nTelefone: '+t+(em?('\nE-mail: '+em):'')+(tp?('\nInteresse: '+tp):'')+(ms?('\nMensagem: '+ms):'');
-  window.open('https://wa.me/'+WNUM+'?text='+encodeURIComponent(msg),'_blank');
+  var n=id('f-nome').value.trim(),t=id('f-tel').value.trim(),tp=id('f-tipo').value,ms=id('f-msg').value.trim();
+  var msg='Olá! Tenho interesse no Residencial Mont'+String.fromCharCode(39)+'Santo.\n\nNome: '+n+'\nTelefone: '+t+(tp?('\nInteresse: '+tp):'')+(ms?('\nMensagem: '+ms):'');
+  var url='https://wa.me/'+WNUM+'?text='+encodeURIComponent(msg);
+  var st=id('f-status');if(st){st.innerHTML='Abrindo o WhatsApp... Se não abrir, <a href="'+url+'" target="_blank" rel="noopener">toque aqui</a>.';st.style.display='block';}
+  waOpen(url);return false;
 }
 // nav shrink + progress
 var nav=id('nav'),prog=id('prog');
@@ -785,7 +1011,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   var h=this.getAttribute('href'); if(!h||h.length<2)return;
   var el=document.querySelector(h); if(!el)return;
   e.preventDefault();
-  var y=el.getBoundingClientRect().top+window.scrollY-44;
+  var y=el.getBoundingClientRect().top+window.scrollY-(nav.classList.contains('small')?nav.offsetHeight:64)-6;
   window.scrollTo({top:y,behavior:'smooth'});
   var lk=document.getElementById('lk'); if(lk)lk.classList.remove('open');
 });});
@@ -810,11 +1036,85 @@ document.addEventListener('keydown',function(e){if(!plb.classList.contains('on')
 </script>
 
 <script>
-(function(){var lb=document.getElementById('lb'),lbInner=document.getElementById('lbInner');
-document.querySelectorAll('.plan-card').forEach(function(card){card.addEventListener('click',function(){
- var img=card.querySelector('img');if(!img)return;lbInner.innerHTML='';
- var c=img.cloneNode();c.style.cssText='max-width:94vw;max-height:90vh;object-fit:contain;border-radius:10px;background:#d0d0d0';
- lbInner.appendChild(c);lb.classList.add('on');});});})();
+/* lightbox das plantas */
+function planLB(img){var lb=document.getElementById('lb'),inner=document.getElementById('lbInner');if(!img)return;inner.innerHTML='';
+ var c=new Image();c.src=img.currentSrc||img.src;c.alt=img.alt;c.style.cssText='max-width:94vw;max-height:88vh;object-fit:contain;border-radius:10px;background:#d0d0d0';
+ inner.appendChild(c);lb.classList.add('on');}
+document.querySelectorAll('.plan-card').forEach(function(card){card.addEventListener('click',function(){planLB(card.querySelector('img'));});});
+/* carrosseis arrastaveis (plantas do pavimento tipo e galeria) */
+function initSlider(root){if(!root)return;
+ var tr=root.querySelector('.ps-track'),cnt=root.querySelector('.ps-count b'),tot=root.querySelector('.ps-count span'),bar=root.querySelector('.ps-bar i'),
+     prev=root.querySelector('.ps-btn.prev'),next=root.querySelector('.ps-btn.next');
+ function cards(){return [].slice.call(tr.children).filter(function(c){return c.offsetParent!==null;});}
+ function step(){var c=cards();return c.length>1?c[1].offsetLeft-c[0].offsetLeft:tr.clientWidth;}
+ function upd(){var c=cards(),n=c.length,max=tr.scrollWidth-tr.clientWidth,sl=tr.scrollLeft,end=sl>=max-4,idx=end?n-1:Math.round(sl/step());
+  cnt.textContent=String(Math.max(1,idx+1)).padStart(2,'0');tot.textContent='/ '+String(n).padStart(2,'0');
+  bar.style.width=(max>0?Math.max(0.12,(sl+tr.clientWidth)/tr.scrollWidth):1)*100+'%';
+  prev.disabled=sl<=4;next.disabled=end;}
+ prev.addEventListener('click',function(){tr.scrollBy({left:-step(),behavior:'smooth'});});
+ next.addEventListener('click',function(){tr.scrollBy({left:step(),behavior:'smooth'});});
+ tr.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+ tr.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();next.click();}if(e.key==='ArrowLeft'){e.preventDefault();prev.click();}});
+ /* arrastar com o mouse no desktop (no celular o swipe e nativo) */
+ var down=false,x0=0,s0=0,moved=false;
+ tr.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;x0=e.clientX;s0=tr.scrollLeft;});
+ addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-x0;if(Math.abs(dx)>5){moved=true;tr.classList.add('drag');}if(moved)tr.scrollLeft=s0-dx;});
+ addEventListener('pointerup',function(){if(!down)return;down=false;if(!moved)return;tr.classList.remove('drag');
+  var i=Math.round(tr.scrollLeft/step());tr.scrollTo({left:i*step(),behavior:'smooth'});});
+ tr.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+ root._reset=function(){tr.scrollTo({left:0,behavior:'auto'});upd();};
+ upd();}
+initSlider(document.getElementById('psTipo'));
+initSlider(document.getElementById('psGal'));
+/* galeria: ao trocar de aba, volta o carrossel para o inicio */
+document.querySelectorAll('.gtab').forEach(function(t){t.addEventListener('click',function(){var g=document.getElementById('psGal');if(g&&g._reset)setTimeout(g._reset,30);});});
+/* mapa interativo carregado sob demanda */
+(function(){var b=document.getElementById('mcLive'),m=document.getElementById('mcMap');if(!b||!m)return;
+ b.addEventListener('click',function(){var f=document.createElement('iframe');
+  f.title="Mapa do Residencial Mont'Santo";f.allowFullscreen=true;f.referrerPolicy='no-referrer-when-downgrade';
+  f.src='https://maps.google.com/maps?q=Residencial%20Mont%27Santo%2C%20Santa%20Maria%20-%20RS&ll=-29.7021945,-53.8155683&z=16&hl=pt-BR&output=embed';
+  m.appendChild(f);m.classList.add('live');});})();
+/* visualizador das coberturas */
+(function(){var v=document.getElementById('cobViewer');if(!v)return;
+ var imgs=[].slice.call(v.querySelectorAll('.cv-imgs img')),tabs=[].slice.call(v.querySelectorAll('.cv-tab')),cur=0,
+     title=document.getElementById('cvTitle'),spec=document.getElementById('cvSpec'),stage=v.querySelector('.cv-stage');
+ function show(i){cur=(i+imgs.length)%imgs.length;
+  imgs.forEach(function(im,k){im.classList.toggle('on',k===cur);});
+  tabs.forEach(function(t,k){t.classList.toggle('on',k===cur);t.setAttribute('aria-selected',k===cur?'true':'false');});
+  var t=tabs[cur];title.textContent=t.querySelector('.cv-n').textContent;
+  spec.textContent=t.querySelector('.cv-m').textContent.replace(/\s+/g,' ').trim()+' · '+t.querySelector('.cv-d').textContent;}
+ tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k);});});
+ v.querySelector('.cv-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+ v.querySelector('.cv-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+ var sx=null,swiped=false;
+ stage.addEventListener('pointerdown',function(e){sx=e.clientX;swiped=false;});
+ stage.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40){swiped=true;show(cur+(dx<0?1:-1));}});
+ stage.addEventListener('click',function(e){if(swiped){swiped=false;return;}if(e.target.closest('.ps-btn'))return;planLB(imgs[cur]);});
+ imgs.forEach(function(im){if(!im.classList.contains('on'))im.loading='eager';});
+})();
+
+/* areas comuns: pavimentos interativos */
+(function(){var x=document.getElementById('floorX');if(!x)return;
+ var ph=x.querySelector('.fx-photo'),tabs=[].slice.call(x.querySelectorAll('.ft')),pans=[].slice.call(x.querySelectorAll('.fp')),img=document.getElementById('fxImg'),cap=document.getElementById('fxCap'),cur=0;
+ function photo(src,c){if(img.getAttribute('src')===src){cap.textContent=c;return;}img.classList.add('fade');
+  setTimeout(function(){img.src=src;img.alt=c;cap.textContent=c;img.onload=function(){img.classList.remove('fade');};setTimeout(function(){img.classList.remove('fade');},400);},220);}
+ function show(i){cur=(i+tabs.length)%tabs.length;
+  tabs.forEach(function(t,k){t.classList.toggle('on',k===cur);t.setAttribute('aria-selected',k===cur?'true':'false');});
+  pans.forEach(function(p,k){p.classList.toggle('on',k===cur);});
+  var p=pans[cur];p.querySelectorAll('.amc').forEach(function(c){c.classList.toggle('on',c.dataset.img===p.dataset.img&&c.dataset.cap===p.dataset.cap);});
+  photo(p.dataset.img,p.dataset.cap);
+  if(innerWidth<=560)tabs[cur].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+ tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k);});});
+ x.querySelectorAll('.amc.has').forEach(function(c){
+  function pick(e){var p=c.closest('.fp');p.querySelectorAll('.amc').forEach(function(o){o.classList.toggle('on',o===c);});photo(c.dataset.img,c.dataset.cap);
+   if(e&&e.type==='click'&&innerWidth<=900){var r=ph.getBoundingClientRect();if(r.bottom<120){window.scrollTo({top:r.top+scrollY-90,behavior:'smooth'});}}}
+  c.addEventListener('click',pick);
+  c.addEventListener('mouseenter',function(){if(matchMedia('(hover:hover)').matches)pick();});});
+ /* swipe na foto troca de pavimento */
+ var sx=null;ph.style.touchAction='pan-y';
+ ph.addEventListener('pointerdown',function(e){sx=e.clientX;});
+ ph.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));});
+})();
 </script>
 </body>
 </html>
