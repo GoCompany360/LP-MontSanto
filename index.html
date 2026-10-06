@@ -3,8 +3,8 @@
 <!--
   ============================================================================
   RESIDENCIAL MONT'SANTO - Landing Page (v1)
-  Incorporacao e construcao: Souza Eng.Arq  |  Comercializacao: GO Company 360
-  Av. Nossa Senhora da Medianeira, 1130 - Bairro Medianeira - Santa Maria/RS
+  Construcao: Villaggio Empreendimentos Imobiliarios Ltda (SPE)  |  Resp. tecnica: Souza Eng.Arq  |  Comercializacao: GO Company 360
+  Av. Nossa Senhora da Medianeira, 120 - Bairro Medianeira - Santa Maria/RS
   Diagramacao derivada da LP Infinity Residence (GO Company 360).
   Imagens em img/ (renders ilustrativos). WhatsApp: 55 55 99605-6881 (GO Company).
   ============================================================================
@@ -13,9 +13,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Residencial Mont'Santo · Bairro Medianeira · Santa Maria/RS</title>
-<meta name="description" content="Residencial Mont'Santo: 59 apartamentos de 124 a 248 m2, mais de 900 m2 de area social, 4 elevadores e piscina com deck, na Av. Nossa Senhora da Medianeira, Santa Maria/RS. Ultimas unidades.">
+<meta name="description" content="Residencial Mont'Santo: 59 apartamentos de 124 a 259 m2 privativos, mais de 900 m2 de area social, 4 elevadores e piscina com deck, na Av. Nossa Senhora da Medianeira, Santa Maria/RS. Ultimas unidades.">
 <meta property="og:title" content="Residencial Mont'Santo · Santa Maria/RS">
-<meta property="og:description" content="Apartamentos de 124 a 248 m2, area social de mais de 900 m2 e a melhor vista da cidade. Ultimas unidades.">
+<meta property="og:description" content="Apartamentos de 124 a 259 m2 privativos, area social de mais de 900 m2 e a melhor vista da cidade. Ultimas unidades.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -567,6 +567,17 @@ section>.wrap{position:relative;z-index:1}
  .amc-grid{gap:10px}.amc{padding:16px 14px;min-height:118px;gap:12px;border-radius:14px}
  .amc-ic{width:50px;height:50px;border-radius:14px}.amc-ic svg{width:26px;height:26px}.amc-t{font-size:13.5px}
 }
+
+/* ===== video aereo ===== */
+.vwrap{position:relative;margin-top:36px;border-radius:22px;overflow:hidden;background:#1f1f1f;aspect-ratio:16/9;box-shadow:0 30px 60px rgba(43,43,43,.18)}
+.vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.v-sound{position:absolute;right:18px;bottom:18px;z-index:2;display:inline-flex;align-items:center;gap:10px;padding:12px 20px 12px 16px;border:0;border-radius:999px;background:rgba(43,43,43,.85);color:#fff;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.3px;cursor:pointer;backdrop-filter:blur(6px);transition:.25s}
+.v-sound:hover{background:var(--gold)}
+.v-sound svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.v-sound .v-on{display:none}.vwrap.sound .v-sound .v-on{display:block}.vwrap.sound .v-sound .v-off{display:none}
+.vwrap:not(.sound) .v-sound{animation:vPulse 2.2s ease-in-out infinite}
+@keyframes vPulse{0%,100%{box-shadow:0 0 0 0 rgba(226,87,31,.55)}60%{box-shadow:0 0 0 14px rgba(226,87,31,0)}}
+@media(max-width:560px){.vwrap{border-radius:14px;margin-top:26px;margin-left:-20px;margin-right:-20px;border-radius:0}.v-sound{right:auto;left:12px;bottom:12px;padding:10px 16px 10px 12px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -597,7 +608,7 @@ section>.wrap{position:relative;z-index:1}
   <div class="wrap in">
     <div class="eyebrow">Bairro Medianeira · Santa Maria / RS</div>
     <h1 class="serif">Colecione<br>histórias <em>raras</em>.</h1>
-    <p class="slogan">Residencial Mont'Santo: 59 apartamentos de 124 a 248 m², mais de 900 m² de área social e 4 elevadores, na principal avenida do bairro Medianeira. Um projeto completo, imponente e pensado para a família santa-mariense.</p>
+    <p class="slogan">Residencial Mont'Santo: 59 apartamentos de 124 a 259 m² privativos, mais de 900 m² de área social e 4 elevadores, na principal avenida do bairro Medianeira. Um projeto completo, imponente e pensado para a família santa-mariense.</p>
     <div class="actions">
       <a href="#interesse" class="btn solid">Quero conhecer</a>
       <a href="#unidade" class="btn line">Ver os apartamentos</a>
@@ -631,6 +642,19 @@ section>.wrap{position:relative;z-index:1}
   </div>
 </section>
 
+<section id="video" class="alt"><div class="wrap">
+  <div class="rv" style="max-width:760px"><div class="tag">A obra hoje</div>
+    <h2 class="serif">Veja o Mont'Santo <em>de cima</em>.</h2>
+    <p class="lead">Imagens aéreas reais da obra, em fase final, na principal avenida do bairro Medianeira.</p>
+  </div>
+  <div class="vwrap rv d1" id="vWrap">
+    <video id="vAereo" autoplay muted loop playsinline preload="auto" poster="img/montsanto-aereo-poster.jpg">
+      <source src="video/montsanto-aereo.mp4" type="video/mp4">
+    </video>
+    <button class="v-sound" id="vSound" type="button" aria-label="Ativar som"><svg class="v-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg><svg class="v-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.4 18.4a9 9 0 0 0 0-12.8"/></svg><span>Ativar som</span></button>
+  </div>
+</div></section>
+
 <section id="sobre" class="alt"><div class="wrap split">
   <div class="rv">
     <div class="tag">O empreendimento</div>
@@ -639,13 +663,13 @@ section>.wrap{position:relative;z-index:1}
   </div>
   <div class="rv d1">
     <div class="ficha">
-      <div class="f"><div class="k">Incorporação e construção</div><div class="v serif" >Souza Eng.Arq</div></div>
-      <div class="f"><div class="k">Tipologias</div><div class="v serif" >De 124 a 248 m²</div></div>
+      <div class="f"><div class="k">Construção</div><div class="v serif" >SPE Villaggio</div></div>
+      <div class="f"><div class="k">Tipologias</div><div class="v serif" >124 a 259 m² privativos</div></div>
       <div class="f"><div class="k">Torre</div><div class="v serif" >14 pavimentos · 59 unidades</div></div>
       <div class="f"><div class="k">Garagem</div><div class="v serif" >128 boxes + 59 homeboxes</div></div>
       <div class="f"><div class="k">Elevadores</div><div class="v serif" >4 elevadores</div></div>
       <div class="f"><div class="k">Localização</div><div class="v serif" >Bairro Medianeira · Santa Maria/RS</div></div>
-      <div class="f"><div class="k">Comercialização</div><div class="v serif" >GO Company 360</div></div>
+      <div class="f"><div class="k">Resp. técnica</div><div class="v serif" >Souza Eng.Arq</div></div>
       <div class="f"><div class="k">Modalidade</div><div class="v serif" >Últimas unidades</div></div>
     </div>
   </div>
@@ -653,15 +677,15 @@ section>.wrap{position:relative;z-index:1}
 
 <section id="unidade"><div class="wrap">
   <div class="rv" style="max-width:760px"><div class="tag">Os apartamentos</div>
-    <h2 class="serif">De 124 a 248 m², <em>do seu jeito</em>.</h2>
+    <h2 class="serif">De 124 a 259 m², <em>do seu jeito</em>.</h2>
     <p class="lead">Plantas dos finais 01 ao 06, do 4º ao 13º pavimento, e quatro coberturas exclusivas no 14º. Ambientes pensados para receber, com possibilidade de personalizar espaços e revestimentos.</p>
   </div>
   <div class="unit rv d1">
     <div class="side">
-      <div class="big">248<small>m² na maior cobertura · 3 suítes</small></div>
+      <div class="big">259<small>m² privativos na maior cobertura · 3 suítes</small></div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Porcelanato 80x80 ou superior e <b>água quente</b> em todos os ambientes</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Laminado de madeira ou vinílico nos dormitórios; persianas na área íntima</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Porcelanato 90x90 e <b>água quente</b> em todos os ambientes</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Vinílico ou porcelanato nos dormitórios; persianas na área íntima</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Espera de gás na churrasqueira, cozinha e lavanderia; opção de isolar a cozinha</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Infraestrutura para ar-condicionado split e <b>espera para lareira</b> personalizável</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Coberturas com <b>espera para spa</b> nos terraços</span></li>
@@ -669,8 +693,8 @@ section>.wrap{position:relative;z-index:1}
     </div>
     <div class="pic padrao-pic" onclick="padraoOpen()">
       <div class="ph"><span class="im">△</span></div>
-      <img src="img/ms-gourmet-living.jpg" alt="Ambiente do apartamento Mont'Santo" onerror="this.style.display='none'">
-      <div class="padrao-cap">Living integrado<b>Ver fotos</b></div>
+      <img src="img/ms-gourmet-living.jpg" alt="Espaço gourmet do Mont'Santo" onerror="this.style.display='none'">
+      <div class="padrao-cap">Espaço gourmet<b>Ver fotos</b></div>
     </div>
   </div>
 
@@ -710,7 +734,7 @@ section>.wrap{position:relative;z-index:1}
 
   <div class="floorx rv d1" id="floorX">
     <div class="ft-tabs" role="tablist" aria-label="Escolha o pavimento">
-      <button class="ft on" role="tab" aria-selected="true" data-i="0"><span class="ft-n">Térreo</span><span class="ft-d">Conveniência · 1.590 m²</span><span class="ft-c">6 espaços</span></button>
+      <button class="ft on" role="tab" aria-selected="true" data-i="0"><span class="ft-n">Térreo</span><span class="ft-d">Conveniência · 1.590 m²</span><span class="ft-c">5 espaços</span></button>
       <button class="ft" role="tab" aria-selected="false" data-i="1"><span class="ft-n">2º Pavimento</span><span class="ft-d">Vida social · 1.471 m²</span><span class="ft-c">6 espaços</span></button>
       <button class="ft" role="tab" aria-selected="false" data-i="2"><span class="ft-n">3º Pavimento</span><span class="ft-d">Bem-estar · 1.249 m²</span><span class="ft-c">4 espaços</span></button>
     </div>
@@ -722,17 +746,16 @@ section>.wrap{position:relative;z-index:1}
           <button class="amc has" type="button" data-img="img/ms-coworking-office.jpg" data-cap="Coworking"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"/><path d="M20.054 15.987H3.946"/></svg></span><span class="amc-t">Coworking</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
           <button class="amc has on" type="button" data-img="img/ms-entrada-portaria.jpg" data-cap="Hall de entrada"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 21H2"/><path d="M10 3H7a2 2 0 00-2 2v16"/><path d="M14 12h.01"/><path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z"/><path d="M22 21h-3"/></svg></span><span class="amc-t">Hall de entrada</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
           <button class="amc has" type="button" data-img="img/ms-espaco-pet.jpg" data-cap="Espaço pet"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span><span class="amc-t">Espaço pet</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
-          <button class="amc has" type="button" data-img="img/ms-coworking-mercado.jpg" data-cap="Mini mercado autônomo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 11-1 9"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"/><path d="M4.5 15.5h15"/><path d="m5 11 4-7"/><path d="m9 11 1 9"/></svg></span><span class="amc-t">Mini mercado autônomo*</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
-          <button class="amc" type="button" data-cap="Lavanderia conjunta"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3"/><path d="M17 6h.01"/><rect width="18" height="20" x="3" y="2" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5"/></svg></span><span class="amc-t">Lavanderia conjunta*</span></button>
-          <button class="amc has" type="button" data-img="img/ms-fachada-terreo-dia.jpg" data-cap="Portaria e zeladoria"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="amc-t">Portaria e zeladoria</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-coworking-mercado.jpg" data-cap="Mercado autônomo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 11-1 9"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"/><path d="M4.5 15.5h15"/><path d="m5 11 4-7"/><path d="m9 11 1 9"/></svg></span><span class="amc-t">Mercado autônomo</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-fachada-terreo-dia.jpg" data-cap="Portaria remota"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="amc-t">Portaria remota</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
         </div>
       </div>
-      <div class="fp" role="tabpanel" data-i="1" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck e praia">
+      <div class="fp" role="tabpanel" data-i="1" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck">
         <div class="amc-grid">
-          <button class="amc has" type="button" data-img="img/ms-salao-festas-duplex.jpg" data-cap="Salão de festas · pé-direito duplo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg></span><span class="amc-t">Salão de festas · pé-direito duplo</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
-          <button class="amc has on" type="button" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck e praia"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"/></svg></span><span class="amc-t">Piscina com deck e praia</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has" type="button" data-img="img/ms-salao-festas-hall.jpg" data-cap="Salão de festas · pé-direito duplo"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg></span><span class="amc-t">Salão de festas · pé-direito duplo</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc has on" type="button" data-img="img/ms-piscina-deck-praia.jpg" data-cap="Piscina com deck"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"/></svg></span><span class="amc-t">Piscina com deck</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
           <button class="amc has" type="button" data-img="img/ms-gourmet-jantar.jpg" data-cap="Espaços gourmet"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><span class="amc-t">Espaços gourmet</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
-          <button class="amc has" type="button" data-img="img/ms-living-lounge-01.jpg" data-cap="Living"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg></span><span class="amc-t">Living</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
+          <button class="amc" type="button" data-cap="Living"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg></span><span class="amc-t">Living</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
           <button class="amc has" type="button" data-img="img/ms-espaco-kids.jpg" data-cap="Espaço kids"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="12" x="3" y="8" rx="1"/><path d="M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3"/><path d="M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3"/></svg></span><span class="amc-t">Espaço kids</span><svg class="amc-ph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></button>
           <button class="amc" type="button" data-cap="Vestiários e duchas"><span class="amc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/></svg></span><span class="amc-t">Vestiários e duchas</span></button>
         </div>
@@ -748,7 +771,6 @@ section>.wrap{position:relative;z-index:1}
       </div>
     </div>
   </div>
-  <p class="obra-note" style="max-width:820px">*Espaços com possibilidade de implantação de mini mercado autônomo e lavanderia conjunta.</p>
 </div></section>
 
 <section id="pavimentos" class="alt"><div class="wrap">
@@ -776,7 +798,7 @@ section>.wrap{position:relative;z-index:1}
       <div class="plan-card" role="group" aria-label="Final 01"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-01.jpg" alt="Planta Final 01" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 01</span><span class="sp">186 m² · 3 suítes</span></div></div>
       <div class="plan-card" role="group" aria-label="Final 02"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-02.jpg" alt="Planta Final 02" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 02</span><span class="sp">124 m² · 1 suíte + 2 dormitórios</span></div></div>
       <div class="plan-card" role="group" aria-label="Final 03"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-03.jpg" alt="Planta Final 03" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 03</span><span class="sp">149 m² · 2 suítes + 1 dormitório</span></div></div>
-      <div class="plan-card" role="group" aria-label="Final 04"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-04.jpg" alt="Planta Final 04" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 04</span><span class="sp">146 m² · 2 suítes + 2 dormitórios</span></div></div>
+      <div class="plan-card" role="group" aria-label="Final 04"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-04.jpg" alt="Planta Final 04" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 04</span><span class="sp">146 m² · 2 suítes + 1 dormitório</span></div></div>
       <div class="plan-card" role="group" aria-label="Duplex Final 05"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-duplex-05.jpg" alt="Planta Duplex Final 05" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Duplex Final 05</span><span class="sp">162 m² · 1 suíte + 2 dormitórios</span></div></div>
       <div class="plan-card" role="group" aria-label="Final 06"><div class="pimg"><span class="zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span><img src="img/planta-final-06.jpg" alt="Planta Final 06" loading="lazy" draggable="false"></div><div class="pcap2"><span class="nm">Final 06</span><span class="sp">152 m² · 2 suítes + 1 dormitório</span></div></div>
     </div>
@@ -802,12 +824,12 @@ section>.wrap{position:relative;z-index:1}
       <span class="zoom cv-zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>Ampliar</span>
     </div>
     <div class="cv-side">
-      <div class="cv-head"><span class="cv-k">Cobertura</span><span class="cv-title" id="cvTitle">1401</span><span class="cv-spec" id="cvSpec">248 m² · 3 suítes</span><span class="cv-extra">Terraço com espera para spa</span></div>
+      <div class="cv-head"><span class="cv-k">Cobertura</span><span class="cv-title" id="cvTitle">1401</span><span class="cv-spec" id="cvSpec">259 m² · 3 suítes</span><span class="cv-extra">Áreas privativas · terraço com espera para spa</span></div>
       <div class="cv-tabs" role="tablist" aria-label="Escolha a cobertura">
-        <button class="cv-tab on" data-i="0" role="tab" aria-selected="true"><span class="cv-n">1401</span><span class="cv-m">248<small> m²</small></span><span class="cv-d">3 suítes</span></button>
-        <button class="cv-tab" data-i="1" role="tab" aria-selected="false"><span class="cv-n">1402</span><span class="cv-m">202<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
-        <button class="cv-tab" data-i="2" role="tab" aria-selected="false"><span class="cv-n">1403</span><span class="cv-m">238<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
-        <button class="cv-tab" data-i="3" role="tab" aria-selected="false"><span class="cv-n">1404</span><span class="cv-m">223<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+        <button class="cv-tab on" data-i="0" role="tab" aria-selected="true"><span class="cv-n">1401</span><span class="cv-m">259<small> m²</small></span><span class="cv-d">3 suítes</span></button>
+        <button class="cv-tab" data-i="1" role="tab" aria-selected="false"><span class="cv-n">1402</span><span class="cv-m">245<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+        <button class="cv-tab" data-i="2" role="tab" aria-selected="false"><span class="cv-n">1403</span><span class="cv-m">207<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
+        <button class="cv-tab" data-i="3" role="tab" aria-selected="false"><span class="cv-n">1404</span><span class="cv-m">210<small> m²</small></span><span class="cv-d">2 suítes + 1 dormitório</span></button>
       </div>
     </div>
   </div>
@@ -834,11 +856,10 @@ section>.wrap{position:relative;z-index:1}
     <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-fachada-terreo-dia.jpg" alt="Térreo" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Acesso térreo</span></div>
     <div class="mg" data-cat="fachada"><div class="ph"><span class="im">△</span></div><img src="img/ms-entrada-placa-dia.jpg" alt="Acesso" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Chegada</span></div>
 
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-deck-praia.jpg" alt="Piscina com praia" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Piscina com deck e praia</span></div>
+    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-deck-praia.jpg" alt="Piscina com deck" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Piscina com deck</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-01.jpg" alt="Piscina" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Piscina</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-piscina-02.jpg" alt="Deck" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Deck</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-hall.jpg" alt="Salão de festas" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Salão de festas</span></div>
-    <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-salao-festas-duplex.jpg" alt="Pé-direito duplo" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Pé-direito duplo</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-academia.jpg" alt="Academia" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Academia</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-kids.jpg" alt="Espaço kids" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço kids</span></div>
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-espaco-pet.jpg" alt="Espaço pet" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço pet</span></div>
@@ -846,10 +867,9 @@ section>.wrap{position:relative;z-index:1}
     <div class="mg" data-cat="lazer"><div class="ph"><span class="im">△</span></div><img src="img/ms-jardim-passeio-green.jpg" alt="Jardim" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Jardim &amp; solário</span></div>
 
     <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jantar.jpg" alt="Espaço gourmet" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Espaço gourmet</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-living.jpg" alt="Gourmet e living" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Gourmet &amp; living</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-living.jpg" alt="Espaço gourmet com forno de pizza" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Gourmet · forno de pizza</span></div>
     <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-gourmet-jogos.jpg" alt="Lounge de jogos" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Lounge de jogos</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-01.jpg" alt="Living social" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Living social</span></div>
-    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-02.jpg" alt="Lounge" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Lounge</span></div>
+    <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-living-lounge-01.jpg" alt="Hall" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Hall</span></div>
     <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-mercado.jpg" alt="Coworking" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Coworking</span></div>
     <div class="mg" data-cat="social"><div class="ph"><span class="im">△</span></div><img src="img/ms-coworking-office.jpg" alt="Home office" draggable="false" loading="lazy" onerror="this.style.display='none'"><span class="lbl">Home office</span></div>
   </div>
@@ -873,7 +893,7 @@ section>.wrap{position:relative;z-index:1}
   <div class="rv">
     <div class="tag">Localização</div>
     <h2 class="serif">Na principal avenida do <em>bairro Medianeira</em>.</h2>
-    <p class="lead">Av. Nossa Senhora da Medianeira, 1130, esquina com a Rua Dr. Zamenoff. Um endereço com tudo por perto: comércio, serviços, escolas e o maior parque da cidade a poucos minutos a pé.</p>
+    <p class="lead">Av. Nossa Senhora da Medianeira, 120, entre a Rua Appel e a Av. Ângelo Bolson. Um endereço com tudo por perto: comércio, serviços, escolas e o maior parque da cidade a poucos minutos a pé.</p>
     <ul class="poi">
       <li><b>Compras</b> Shopping Praça Nova, Havan e Stock Center</li>
       <li><b>Dia a dia</b> Supermercados Beltrame e Tumeleiro</li>
@@ -890,7 +910,7 @@ section>.wrap{position:relative;z-index:1}
         <button class="mc-live" type="button" id="mcLive"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.1 4.4 9.9 2.6a2 2 0 0 0-1.6 0L3.6 4.7A1 1 0 0 0 3 5.6v13.3a1 1 0 0 0 1.4.9l4-1.8a2 2 0 0 1 1.6 0l4.2 1.8a2 2 0 0 0 1.6 0l4.6-2.1a1 1 0 0 0 .6-.9V3.5a1 1 0 0 0-1.4-.9l-4 1.8a2 2 0 0 1-1.5 0z"/><path d="M15 5.8v15M9 3v15"/></svg>Ver mapa interativo</button>
       </div>
       <div class="mc-foot">
-        <div class="mc-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><div><b>Residencial Mont'Santo</b><span>Av. N. Sra. da Medianeira, 1130 · Santa Maria/RS</span></div></div>
+        <div class="mc-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><div><b>Residencial Mont'Santo</b><span>Av. N. Sra. da Medianeira, 120 · Santa Maria/RS</span></div></div>
         <a class="mc-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=-29.7021945,-53.8155683" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Como chegar</a>
       </div>
     </div>
@@ -900,8 +920,8 @@ section>.wrap{position:relative;z-index:1}
 <section id="construtora" class="alt"><div class="wrap builder">
   <div class="rv">
     <div class="tag">Quem constrói</div>
-    <h2 class="serif">Souza <em>Eng.Arq</em></h2>
-    <p class="lead">Engenharia e arquitetura sob o mesmo teto, com projeto e execução assinados pela própria equipe. O Mont'Santo é a materialização de um projeto pensado nos mínimos detalhes para a família santa-mariense.</p>
+    <h2 class="serif">Quem está <em>por trás da obra</em>.</h2>
+    <p class="lead">A construção é feita pela SPE Villaggio Empreendimentos Imobiliários, com administração e condução próprias. A Souza Eng.Arq detém a responsabilidade técnica pela execução.</p>
     <div class="mini">
       <div class="m"><div class="n">14</div><div class="l">Pavimentos</div></div>
       <div class="m"><div class="n">59</div><div class="l">Unidades</div></div>
@@ -910,10 +930,10 @@ section>.wrap{position:relative;z-index:1}
   </div>
   <div class="rv d1">
     <div class="ficha">
-      <div class="f person"><span class="avatar logo"><img src="img/equipe-souza-engarq.png" alt="Souza Eng.Arq" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Incorporação e construção</div><div class="v serif">Souza Eng.Arq</div></div></div>
-      <div class="f person"><span class="avatar"><img src="img/equipe-nathalia-souza.jpg" alt="Arq. Nathália Souza" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto arquitetônico</div><div class="v serif">Arq. Nathália Souza</div></div></div>
-      <div class="f person"><span class="avatar"><img src="img/equipe-leonardo-pedroso.jpg" alt="Leonardo Fanfa Pedroso" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto</div><div class="v serif">Leonardo Fanfa Pedroso</div></div></div>
-      <div class="f person"><span class="avatar"><img src="img/equipe-diogo-souza.jpg" alt="Eng. Diogo Souza" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Resp. técnico de execução</div><div class="v serif">Eng. Diogo Souza<small class="reg">CREA-RS 196615</small></div></div></div>
+      <div class="f person"><span class="avatar logo"><img src="img/equipe-villaggio.png" alt="Villaggio" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Construção</div><div class="v serif">SPE Villaggio Empreendimentos Imobiliários Ltda<small class="reg">Administração e condução próprias</small></div></div></div>
+      <div class="f person"><span class="avatar logo"><img src="img/equipe-souza-engarq.png" alt="Souza Eng.Arq" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Responsabilidade técnica pela execução</div><div class="v serif">Souza Eng.Arq<small class="reg">Eng. Diogo Souza · CREA-RS 196615</small></div></div></div>
+      <div class="f person"><span class="avatar"><img src="img/equipe-nathalia-souza.jpg" alt="Arq. Nathália Souza" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto arquitetônico</div><div class="v serif">Arq. Nathália Souza<small class="reg">Arq. Leonardo Fanfa Pedroso</small></div></div></div>
+      <div class="f person"><span class="avatar logo"><img src="img/equipe-lp-arquitetos.png" alt="LP Arquitetos" loading="lazy" onerror="this.remove()"></span><div class="pinfo"><div class="k">Projeto de interiores · áreas comuns</div><div class="v serif">LP Arquitetos</div></div></div>
     </div>
   </div>
 </div></section>
@@ -934,7 +954,7 @@ section>.wrap{position:relative;z-index:1}
   <p class="lead" style="margin:22px auto 0">Restam poucas unidades. Preencha e envie: você fala com um consultor na hora, pelo WhatsApp, e recebe o material completo.</p></div>
   <form class="form rv d1" onsubmit="waSubmit(event)">
     <div class="r2"><input id="f-nome" type="text" placeholder="Nome completo" required><input id="f-tel" type="tel" placeholder="Telefone / WhatsApp" required></div>
-    <select id="f-tipo"><option value="">Interesse...</option><option>Apartamento tipo (124 a 186 m²)</option><option>Cobertura (202 a 248 m²)</option><option>Duplex (162 m²)</option><option>Quero investir</option><option>Sou corretor(a)</option></select>
+    <select id="f-tipo"><option value="">Interesse...</option><option>Apartamento tipo (124 a 186 m²)</option><option>Cobertura (207 a 259 m²)</option><option>Duplex (162 m²)</option><option>Quero investir</option><option>Sou corretor(a)</option></select>
     <textarea id="f-msg" rows="3" placeholder="Mensagem (opcional)"></textarea>
     <button type="submit" class="btn solid" style="width:100%;justify-content:center">Falar no WhatsApp agora</button>
     <div class="f-status" id="f-status" role="status"></div>
@@ -1018,14 +1038,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
 // lightbox "Ver fotos" do apartamento (galeria de ambientes)
 var plb=id('plb'),plbImg=id('plbImg'),pI=0,pP=null;
 var padraoPhotos=[
- {src:'img/ms-gourmet-living.jpg',t:'Living integrado'},
+ {src:'img/ms-gourmet-living.jpg',t:'Gourmet · forno de pizza'},
  {src:'img/ms-gourmet-jantar.jpg',t:'Espaço gourmet'},
  {src:'img/ms-gourmet-jogos.jpg',t:'Lounge de jogos'},
- {src:'img/ms-living-lounge-01.jpg',t:'Living social'},
- {src:'img/ms-living-lounge-02.jpg',t:'Lounge'},
- {src:'img/ms-coworking-office.jpg',t:'Home office'}
+ {src:'img/ms-coworking-mercado.jpg',t:'Coworking e mercado autônomo'},
+ {src:'img/ms-coworking-office.jpg',t:'Coworking'}
 ];
-function padraoOpen(){pP={name:'Ambientes ilustrativos',photos:padraoPhotos};pI=0;plbShow();plb.classList.add('on');}
+function padraoOpen(){pP={name:'Áreas comuns · imagens ilustrativas',photos:padraoPhotos};pI=0;plbShow();plb.classList.add('on');}
 function plbShow(){var ph=pP.photos;plbImg.src=ph[pI].src;
  id('plbTitle').textContent=ph[pI].t||pP.name;
  id('plbCount').textContent=(pI+1)+' / '+ph.length;}
@@ -1114,6 +1133,21 @@ document.querySelectorAll('.gtab').forEach(function(t){t.addEventListener('click
  var sx=null;ph.style.touchAction='pan-y';
  ph.addEventListener('pointerdown',function(e){sx=e.clientX;});
  ph.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));});
+})();
+
+/* video aereo: autoplay; tenta com som, se o navegador bloquear segue sem som e libera no primeiro toque */
+(function(){var v=document.getElementById('vAereo'),w=document.getElementById('vWrap'),b=document.getElementById('vSound');if(!v)return;
+ var lbl=b.querySelector('span');
+ function ui(){var on=!v.muted;w.classList.toggle('sound',on);lbl.textContent=on?'Som ativado':'Ativar som';b.setAttribute('aria-label',on?'Desativar som':'Ativar som');}
+ function tryUnmuted(){v.muted=false;v.volume=1;var p=v.play();if(p&&p.catch){p.then(ui).catch(function(){v.muted=true;v.play().catch(function(){});ui();});}else ui();}
+ b.addEventListener('click',function(e){e.stopPropagation();v.muted=!v.muted;if(!v.muted){v.volume=1;}v.play().catch(function(){});ui();});
+ var started=false;
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!started){started=true;tryUnmuted();}else{v.play().catch(function(){});}}else{v.pause();}});},{threshold:.35});
+ io.observe(w);
+ function firstTouch(){if(v.muted&&!w.dataset.userMuted){var r=w.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0){v.muted=false;v.play().catch(function(){v.muted=true;});ui();}}}
+ b.addEventListener('click',function(){w.dataset.userMuted=v.muted?'1':'';});
+ ['pointerdown','keydown'].forEach(function(ev){addEventListener(ev,firstTouch,{passive:true});});
+ ui();
 })();
 </script>
 </body>
